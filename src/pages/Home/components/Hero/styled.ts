@@ -29,8 +29,10 @@ export const ContainerHero = styled.section`
     background-color: rgba(0, 0, 0, 0.3);
   }
 
-  h1 {
+  h1,
+  p {
     text-align: center;
+    z-index: 1;
   }
 
   @media (max-width: 780px) {

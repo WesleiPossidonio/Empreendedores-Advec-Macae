@@ -2,7 +2,7 @@ import { Link } from 'react-scroll'
 import styled from 'styled-components'
 
 interface HeaderProps {
-  stateHeader: boolean
+  stateHeader?: boolean
 }
 
 export const ContainerHeader = styled.header<HeaderProps>`
@@ -19,7 +19,7 @@ export const ContainerHeader = styled.header<HeaderProps>`
   z-index: 99;
 
   background: ${({ theme, stateHeader }) =>
-    stateHeader ? theme.colors['base-white'] : 'transparent'};
+    stateHeader === true ? theme.colors['base-white'] : 'transparent'};
 
   > svg {
     display: none;
@@ -71,13 +71,16 @@ export const NavMobile = styled.nav<NavMobileProps>`
   background-color: ${({ theme }) => theme.colors['base-white']};
 `
 
-export const NavLink = styled(Link)`
+export const NavLink = styled(Link)<HeaderProps>`
   font-size: ${({ theme }) => theme.FontSizes['text-regular-m']};
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
 
-  color: ${({ theme }) => theme.colors['base-gray']};
+  color: ${({ theme, stateHeader }) =>
+    stateHeader === true
+      ? theme.colors['base-gray']
+      : theme.colors['base-white']};
   cursor: pointer;
 
   transition: 0.2s ease-in;
@@ -85,4 +88,8 @@ export const NavLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors['base-blue']};
   }
+`
+
+export const NavLinkMobile = styled(NavLink)`
+  color: ${({ theme }) => theme.colors['base-gray']};
 `

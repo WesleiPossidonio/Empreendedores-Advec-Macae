@@ -1,11 +1,12 @@
 import { Header } from '../../components'
-import { Hero } from './components'
+import { About, Hero } from './components'
 
 export const Home = () => {
   return (
-    <div>
+    <>
       <Header />
       <Hero />
-    </div>
+      <About />
+    </>
   )
 }

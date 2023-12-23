@@ -3,7 +3,13 @@ import { useEffect, useState } from 'react'
 
 import { Button } from '..'
 
-import { ContainerHeader, NavDesktop, NavLink, NavMobile } from './styles'
+import {
+  ContainerHeader,
+  NavDesktop,
+  NavLink,
+  NavLinkMobile,
+  NavMobile,
+} from './styles'
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,16 +48,16 @@ export const Header = () => {
         <List size={35} weight="fill" onClick={handleStateMenuMobile} />
       )}
       <NavDesktop>
-        <NavLink to="" smooth={true}>
+        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
           Home
         </NavLink>
-        <NavLink to="" smooth={true}>
+        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
           Nossos Valores
         </NavLink>
-        <NavLink to="" smooth={true}>
+        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
           Vagas
         </NavLink>
-        <NavLink to="" smooth={true}>
+        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
           Contatos
         </NavLink>
 
@@ -59,18 +65,18 @@ export const Header = () => {
       </NavDesktop>
 
       <NavMobile isOpen={isOpen}>
-        <NavLink to="" smooth={true} onClick={handleStateMenuMobile}>
+        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
           Home
-        </NavLink>
-        <NavLink to="" smooth={true} onClick={handleStateMenuMobile}>
+        </NavLinkMobile>
+        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
           Nossos Valores
-        </NavLink>
-        <NavLink to="" smooth={true} onClick={handleStateMenuMobile}>
+        </NavLinkMobile>
+        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
           Vagas
-        </NavLink>
-        <NavLink to="" smooth={true} onClick={handleStateMenuMobile}>
+        </NavLinkMobile>
+        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
           Contatos
-        </NavLink>
+        </NavLinkMobile>
 
         <Button>Login</Button>
       </NavMobile>

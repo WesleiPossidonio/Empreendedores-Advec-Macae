@@ -6,7 +6,7 @@ export const Hero = () => {
   return (
     <ContainerHero>
       <ContentTitle>
-        <TitleText size="m" color="gray">
+        <TitleText size="m" color="white">
           Descubra Oportunidades Incríveis!
         </TitleText>
         <TextRegular weight={600}>
