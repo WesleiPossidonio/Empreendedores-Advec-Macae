@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 
-export const ContainerButton = styled.button`
+interface ButtonProps {
+  search?: boolean
+}
+
+export const ContainerButton = styled.button<ButtonProps>`
   width: 7.5625rem;
-  height: 2.5rem;
+  height: ${({ search }) => (search === true ? '3rem' : '2.5rem')};
 
   border: 1px solid ${({ theme }) => theme.colors['base-blue']};
   border-radius: 5px;
 
-  font-size: ${({ theme }) => theme.FontSises['base-text-m']};
+  font-size: ${({ theme }) => theme.FontSizes['text-regular-m']};
   font-style: normal;
   font-weight: 500;
   line-height: normal;
