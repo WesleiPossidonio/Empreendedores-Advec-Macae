@@ -5,19 +5,26 @@ import {
   Handshake,
 } from '@phosphor-icons/react'
 
-import { TextRegular, TitleText } from '../../../../components/typograph'
-import { CardAbout, ContainerAbout, ContainerCards } from './styled'
+import { TextRegular, TitleText } from '../../../../components'
+import {
+  CardAbout,
+  ContainerAbout,
+  ContainerCards,
+  ContainerTitle,
+} from './styled'
 
 export const About = () => {
   return (
     <ContainerAbout>
-      <TitleText>Lorem ipsum dolor sit amet, consectetur</TitleText>
-      <TextRegular color="gray" size="m">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam,
-        consequatur! Expedita eum commodi dolor eveniet, eaque ipsam doloremque
-        voluptas possimus molestiae odio in recusandae vel ea reprehenderit
-        ratione repellat! Illo.
-      </TextRegular>
+      <ContainerTitle>
+        <TitleText>Lorem ipsum dolor sit amet, consectetur</TitleText>
+        <TextRegular color="gray" size="m">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam,
+          consequatur! Expedita eum commodi dolor eveniet, eaque ipsam
+          doloremque voluptas possimus molestiae odio in recusandae vel ea
+          reprehenderit ratione repellat! Illo.
+        </TextRegular>
+      </ContainerTitle>
 
       <ContainerCards>
         <CardAbout>

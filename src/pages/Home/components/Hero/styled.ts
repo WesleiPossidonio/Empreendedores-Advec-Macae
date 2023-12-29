@@ -4,7 +4,7 @@ import BgHero from '../../../../assets/HeroBg.webp'
 
 export const ContainerHero = styled.section`
   width: 100%;
-  height: 40.625rem;
+  min-height: 100vh;
 
   background-image: url(${BgHero});
   background-position: center center;

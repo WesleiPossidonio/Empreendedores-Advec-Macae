@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const ContainerAbout = styled.section`
   width: 100%;
-  height: max-content;
 
   display: flex;
   flex-direction: column;
@@ -18,10 +17,20 @@ export const ContainerAbout = styled.section`
   }
 `
 
+export const ContainerTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1875rem;
+
+  margin-bottom: 3.4375rem;
+`
+
 export const ContainerCards = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 18.75rem));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 18.75rem));
   justify-content: center;
   gap: 2rem;
 

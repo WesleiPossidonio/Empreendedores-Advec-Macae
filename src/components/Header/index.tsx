@@ -58,6 +58,9 @@ export const Header = () => {
           Vagas
         </NavLink>
         <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
+          Empresas
+        </NavLink>
+        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
           Contatos
         </NavLink>
 
@@ -74,6 +77,9 @@ export const Header = () => {
         <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
           Vagas
         </NavLinkMobile>
+        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
+          Empresas
+        </NavLink>
         <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
           Contatos
         </NavLinkMobile>

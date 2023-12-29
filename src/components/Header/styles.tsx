@@ -79,7 +79,7 @@ export const NavLink = styled(Link)<HeaderProps>`
 
   color: ${({ theme, stateHeader }) =>
     stateHeader === true
-      ? theme.colors['base-gray']
+      ? theme.colors['base-gray-300']
       : theme.colors['base-white']};
   cursor: pointer;
 
@@ -91,5 +91,5 @@ export const NavLink = styled(Link)<HeaderProps>`
 `
 
 export const NavLinkMobile = styled(NavLink)`
-  color: ${({ theme }) => theme.colors['base-gray']};
+  color: ${({ theme }) => theme.colors['base-gray-300']};
 `

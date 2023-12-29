@@ -1,2 +1,6 @@
 export * from './Header'
 export * from './Button'
+export * from './FormSearch'
+export * from './Input'
+export * from './Footer'
+export * from './typograph'

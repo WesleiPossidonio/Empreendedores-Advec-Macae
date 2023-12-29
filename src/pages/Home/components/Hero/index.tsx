@@ -1,5 +1,5 @@
+import { TextRegular, TitleText } from '../../../../components'
 import { FormSearch } from '../../../../components/FormSearch'
-import { TextRegular, TitleText } from '../../../../components/typograph'
 import { ContainerHero, ContentTitle } from './styled'
 
 export const Hero = () => {
