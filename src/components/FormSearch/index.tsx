@@ -5,6 +5,7 @@ import { Button, Input } from '..'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
+import { useListVocancies } from '../../contexts/companyContext'
 import { TextRegular } from '../typograph'
 import { ContainerForm } from './styled'
 
@@ -24,8 +25,11 @@ export const FormSearch = () => {
     resolver: zodResolver(listVacanciesFormSchema),
   })
 
+  const { handleGetListVacancies } = useListVocancies()
+
   const handleGetVacancies = async (ListVacancy: listVacancyFormInput) => {
-    console.log(ListVacancy)
+    const { vacancy } = ListVacancy
+    await handleGetListVacancies(vacancy)
     reset()
   }
 

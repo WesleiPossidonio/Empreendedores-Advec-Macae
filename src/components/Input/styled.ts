@@ -48,7 +48,7 @@ export const InputStyled = styled.input`
 
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 
-  color: ${({ theme }) => theme.colors['base-white']};
+  color: ${({ theme }) => theme.colors['base-black']};
 
   &::placeholder {
     color: ${({ theme }) => theme.colors['base-black']};
