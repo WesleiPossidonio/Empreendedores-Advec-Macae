@@ -1,4 +1,6 @@
-import ImageOne from '../../../../assets/ImageOne.svg'
+import ImageOne from '../../../../assets/ImgPassoOne.svg'
+import ImageTree from '../../../../assets/ImgPassoThree3.svg'
+import ImageTwo from '../../../../assets/ImgPassoTwo.svg'
 import { Button, TextRegular, TitleText } from '../../../../components'
 import {
   ContainerExpanation,
@@ -13,7 +15,7 @@ export const Explanation = () => {
   return (
     <ContainerExplanation>
       <ContentTitle>
-        <TitleText>How It Works</TitleText>
+        <TitleText color="black">How It Works</TitleText>
         <TextRegular>
           Lorem Ipsum is simply dummy text of the printing and typesetting
         </TextRegular>
@@ -25,10 +27,12 @@ export const Explanation = () => {
           <ContainerText>
             <div>
               <span>1º Passo</span>
-              <TitleText size="l">Copy Share your review</TitleText>
+              <TitleText size="l" color="black">
+                Pesquise sua Vaga
+              </TitleText>
             </div>
 
-            <TextRegular size="s" weight={400}>
+            <TextRegular size="s" weight={400} color="black">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the standard dummy text ever since
               the 1500s, when an unknown printer took a galley of type and
@@ -41,26 +45,30 @@ export const Explanation = () => {
           <ContainerText>
             <div>
               <span>2º Passo</span>
-              <TitleText size="l">Copy Share your review</TitleText>
+              <TitleText size="l" color="black">
+                Copy Share your review
+              </TitleText>
             </div>
-            <TextRegular size="s" weight={400}>
+            <TextRegular size="s" weight={400} color="black">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the standard dummy text ever since
               the 1500s, when an unknown printer took a galley of type and
               scrambled it to make
             </TextRegular>
           </ContainerText>
-          <Image src={ImageOne} alt="" />
+          <Image src={ImageTwo} alt="" />
         </Content>
 
         <Content>
-          <Image src={ImageOne} alt="" />
+          <Image src={ImageTree} alt="" />
           <ContainerText>
             <div>
               <span>3º Passo</span>
-              <TitleText size="l">Copy Share your review</TitleText>
+              <TitleText size="l" color="black">
+                Copy Share your review
+              </TitleText>
             </div>
-            <TextRegular size="s" weight={400}>
+            <TextRegular size="s" weight={400} color="black">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the standard dummy text ever since
               the 1500s, when an unknown printer took a galley of type and

@@ -1,9 +1,58 @@
-import { ContainerFooter } from './styled'
+import { TextRegular, TitleText } from '..'
+
+import {
+  ContainerFooter,
+  ContentContact,
+  ContentLink,
+  HeaderFooter,
+} from './styled'
 
 export const Footer = () => {
   return (
     <ContainerFooter>
-      <p>heloo</p>
+      <HeaderFooter>
+        <TitleText size="l">Logo</TitleText>
+        <div>
+          <TextRegular color="black" weight={700}>
+            Todos os Direitos Reservados
+          </TextRegular>
+          <TextRegular>
+            {' '}
+            &copy; 2023 Desenvolvido por{' '}
+            <a
+              href="https://www.wesleifranca.com.br"
+              target="_blank"
+              className="link"
+              rel="noreferrer"
+            >
+              Weslei França
+            </a>
+          </TextRegular>
+        </div>
+      </HeaderFooter>
+
+      <ContentLink>
+        <TitleText size="l">Navagação</TitleText>
+        <TextRegular>Home</TextRegular>
+        <TextRegular>Nossos Valores</TextRegular>
+        <TextRegular>Vagas</TextRegular>
+        <TextRegular>Empresas</TextRegular>
+        <TextRegular>Contatos</TextRegular>
+        <TextRegular>Login</TextRegular>
+      </ContentLink>
+
+      <ContentContact>
+        <TitleText size="l">Contatos</TitleText>
+        <TextRegular>
+          Email:
+          <a href="mailto:advecempreendedores@gmail.com">
+            advecempreendedores@gmail.com
+          </a>
+        </TextRegular>
+        <TextRegular>
+          Tel: <a href="tel:+22222222222">22 22222 - 2222</a>
+        </TextRegular>
+      </ContentContact>
     </ContainerFooter>
   )
 }

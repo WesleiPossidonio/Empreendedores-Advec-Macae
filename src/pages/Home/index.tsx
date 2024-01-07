@@ -1,5 +1,12 @@
 import { Footer, Header } from '../../components'
-import { About, Companies, Contact, Explanation, Hero } from './components'
+import {
+  Principes,
+  Companies,
+  Contact,
+  Explanation,
+  Hero,
+  About,
+} from './components'
 import { ContainerHome } from './styled'
 
 export const Home = () => {
@@ -8,6 +15,7 @@ export const Home = () => {
       <Header />
       <Hero />
       <About />
+      <Principes />
       <Explanation />
       <Companies />
       <Contact />

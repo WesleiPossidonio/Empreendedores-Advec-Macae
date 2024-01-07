@@ -6,5 +6,5 @@ export const ContainerHome = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6rem;
+  gap: 5rem;
 `

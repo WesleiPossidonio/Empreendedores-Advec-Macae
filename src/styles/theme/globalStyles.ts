@@ -9,6 +9,8 @@ export const GlobalStyled = createGlobalStyle`
     outline: 0;   
 
     font-family: 'Maven Pro', sans-serif;
+
+    
 }
 
 html {

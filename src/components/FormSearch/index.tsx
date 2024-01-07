@@ -1,12 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Button } from '..'
+import { Button, Input } from '..'
 
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
 import { TextRegular } from '../typograph'
-import { ContainerForm, InputSearch } from './styled'
+import { ContainerForm } from './styled'
 
 const listVacanciesFormSchema = zod.object({
   vacancy: zod.string().min(1, 'Por gentileza digite a vaga'),
@@ -33,7 +33,7 @@ export const FormSearch = () => {
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <ContainerForm onSubmit={handleSubmit(handleGetVacancies)}>
       <div>
-        <InputSearch
+        <Input
           placeholder="Buscar Vagas"
           {...register('vacancy')}
           id="vacancy"

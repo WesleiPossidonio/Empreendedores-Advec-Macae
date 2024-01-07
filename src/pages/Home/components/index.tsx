@@ -1,5 +1,6 @@
 export * from './Hero'
-export * from './About'
+export * from './Principes'
 export * from './Explanation'
 export * from './Companies'
 export * from './Contact'
+export * from './About'

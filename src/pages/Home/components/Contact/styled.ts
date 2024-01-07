@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerContact = styled.section`
   width: 90%;
-  height: 45rem;
+  height: 50rem;
 
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const ContainerContact = styled.section`
   border: none;
   border-radius: 10px;
 
-  background-color: ${({ theme }) => theme.colors['base-gray-100']};
+  background-color: ${({ theme }) => theme.colors['base-theme']};
 `
 export const Form = styled.form`
   width: 80%;
@@ -41,7 +41,7 @@ export const TextArea = styled.textarea`
 
   padding: 0.5rem;
 
-  border: 2px solid ${({ theme }) => theme.colors['base-gray-200']};
+  border: 2px solid ${({ theme }) => theme.colors['base-white']};
   border-radius: 8px;
 
   font-size: ${({ theme }) => theme.FontSizes['text-regular-s']};
@@ -49,14 +49,16 @@ export const TextArea = styled.textarea`
   font-style: normal;
   font-weight: 400;
 
-  background: ${({ theme }) => theme.colors['base-gray-200']};
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+  background: ${({ theme }) => theme.colors['base-white']};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors['base-white']};
+    color: ${({ theme }) => theme.colors['base-black']};
   }
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors['base-blue']};
+    border: 2px solid ${({ theme }) => theme.colors['base-black']};
     border-radius: 8px;
   }
 `

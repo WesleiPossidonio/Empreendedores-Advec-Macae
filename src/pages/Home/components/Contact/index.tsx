@@ -5,7 +5,7 @@ import { ContainerContact, Form, TextArea } from './styled'
 export const Contact = () => {
   return (
     <ContainerContact>
-      <TitleText>Lorem ipsuariatur!</TitleText>
+      <TitleText color="black">Lorem ipsuariatur!</TitleText>
       <TextRegular>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
       </TextRegular>

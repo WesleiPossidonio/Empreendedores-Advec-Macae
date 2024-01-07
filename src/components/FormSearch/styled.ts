@@ -24,27 +24,3 @@ export const ContainerForm = styled.form`
     gap: 0.5rem;
   }
 `
-
-interface InputSearchProps {
-  error?: string
-}
-
-export const InputSearch = styled.input<InputSearchProps>`
-  height: 3rem;
-  flex: 1;
-
-  border: 1px solid ${({ theme }) => theme.colors['base-gray']};
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors['base-white']};
-
-  padding: 1rem;
-
-  font-size: ${({ theme }) => theme.FontSizes['text-regular-s']};
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-
-  &::placeholder {
-    color: ${({ theme }) => theme.colors['base-gray-100']};
-  }
-`

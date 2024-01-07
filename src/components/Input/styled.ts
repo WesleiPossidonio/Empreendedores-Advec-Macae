@@ -20,6 +20,7 @@ export const InputContaineStyle = styled.div<InputStyleContainerProps>`
   font-weight: 400;
   font-size: 0.8835125rem;
   line-height: 1.3125rem;
+  border-radius: 7px;
 
   background: ${({ theme }) => theme.colors['base-gray-100']};
 
@@ -34,9 +35,9 @@ export const InputStyled = styled.input`
   width: 100%;
   height: 100%;
 
-  background: ${({ theme }) => theme.colors['base-gray-200']};
+  background: ${({ theme }) => theme.colors['base-white']};
 
-  border: 2px solid ${({ theme }) => theme.colors['base-gray-200']};
+  border: 2px solid ${({ theme }) => theme.colors['base-white']};
   border-radius: 8.07781px;
 
   font-size: ${({ theme }) => theme.FontSizes['text-regular-s']};
@@ -45,14 +46,16 @@ export const InputStyled = styled.input`
   font-weight: 400;
   padding: 0.5rem;
 
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
   color: ${({ theme }) => theme.colors['base-white']};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors['base-white']};
+    color: ${({ theme }) => theme.colors['base-black']};
   }
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors['base-blue']};
+    border: 2px solid ${({ theme }) => theme.colors['base-theme']};
     border-radius: 8px;
   }
 `

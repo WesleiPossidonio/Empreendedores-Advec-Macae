@@ -9,7 +9,7 @@ export const Hero = () => {
         <TitleText size="m" color="white">
           Descubra Oportunidades Incríveis!
         </TitleText>
-        <TextRegular weight={600}>
+        <TextRegular weight={600} color="black">
           Encontre Sua Próxima Jornada Profissional Aqui!
         </TextRegular>
 

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const ContainerExplanation = styled.section`
   width: 90%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +12,7 @@ export const ContainerExplanation = styled.section`
 
   border-radius: 10px;
 
-  background-color: ${({ theme }) => theme.colors['base-gray-100']};
+  background-color: ${({ theme }) => theme.colors['base-theme']};
 `
 
 export const ContentTitle = styled.div`
@@ -78,14 +77,14 @@ export const ContainerText = styled.div`
       align-items: center;
       justify-content: center;
 
-      border: 3px solid ${({ theme }) => theme.colors['base-blue']};
+      border: 1px solid ${({ theme }) => theme.colors['base-black']};
       border-radius: 3px;
 
       font-size: 0.875rem;
       font-weight: 600;
 
       color: ${({ theme }) => theme.colors['base-white']};
-      background-color: ${({ theme }) => theme.colors['base-blue']};
+      background-color: ${({ theme }) => theme.colors['base-black']};
     }
   }
 `

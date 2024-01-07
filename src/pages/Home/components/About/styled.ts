@@ -1,69 +1,57 @@
 import styled from 'styled-components'
 
 export const ContainerAbout = styled.section`
-  width: 100%;
+  width: 90%;
+  height: max-content;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5625rem;
+  gap: 5rem;
 
-  padding: 4rem 1rem;
-
-  h1,
-  p {
-    text-align: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
   }
 `
 
-export const ContainerTitle = styled.div`
+export const ContentText = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 1.1875rem;
 
-  margin-bottom: 3.4375rem;
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
 `
 
-export const ContainerCards = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 18.75rem));
-  justify-content: center;
-  gap: 2rem;
-
-  margin-top: 1.3125rem;
-`
-
-export const CardAbout = styled.div`
-  width: 100%;
-  height: 12rem;
-
+export const ContentImg = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.2375rem;
+  gap: 1.5rem;
 
   padding: 1rem;
-  border-radius: 8px;
 
-  background: ${({ theme }) => theme.colors['base-white']};
+  img {
+    width: 16rem;
+    border-radius: 6px;
 
-  box-shadow:
-    rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
-    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-
-  &:hover {
-    transform: translateY(-6px);
+    @media (max-width: 900px) {
+      width: 11.5rem;
+    }
   }
 
-  svg {
-    color: ${({ theme }) => theme.colors['base-blue']};
+  .imgOne {
+    margin-top: 15rem;
   }
 `

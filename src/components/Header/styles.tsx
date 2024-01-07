@@ -29,7 +29,7 @@ export const ContainerHeader = styled.header<HeaderProps>`
   @media (max-width: 768px) {
     > svg {
       display: block;
-      color: ${({ theme }) => theme.colors['base-blue']};
+      color: ${({ theme }) => theme.colors['base-theme']};
     }
   }
 `
@@ -79,17 +79,17 @@ export const NavLink = styled(Link)<HeaderProps>`
 
   color: ${({ theme, stateHeader }) =>
     stateHeader === true
-      ? theme.colors['base-gray-300']
+      ? theme.colors['base-gray']
       : theme.colors['base-white']};
   cursor: pointer;
 
   transition: 0.2s ease-in;
 
   &:hover {
-    color: ${({ theme }) => theme.colors['base-blue']};
+    color: ${({ theme }) => theme.colors['base-theme']};
   }
 `
 
 export const NavLinkMobile = styled(NavLink)`
-  color: ${({ theme }) => theme.colors['base-gray-300']};
+  color: ${({ theme }) => theme.colors['base-gray']};
 `
