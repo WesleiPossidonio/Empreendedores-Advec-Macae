@@ -32,6 +32,10 @@ export const ContainerExpanation = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+
+  @media (max-width: 720px) {
+    gap: 5rem;
+  }
 `
 
 export const Content = styled.div`
@@ -40,6 +44,11 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10rem;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `
 
 export const Image = styled.img`
@@ -51,7 +60,8 @@ export const Image = styled.img`
   }
 
   @media (max-width: 720px) {
-    display: none;
+    order: 2;
+    width: 14rem;
   }
 `
 
@@ -62,7 +72,7 @@ export const ContainerText = styled.div`
   justify-content: center;
   gap: 0.875rem;
 
-  width: 27rem;
+  max-width: 27rem;
 
   > div {
     display: flex;
