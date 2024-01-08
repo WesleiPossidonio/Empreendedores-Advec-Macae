@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Home, PageVacancies, Vacancies } from '../pages'
+import { Home, Login, PageVacancies, Register, Vacancies } from '../pages'
 
 export const Router = () => {
   return (
@@ -8,6 +8,8 @@ export const Router = () => {
       <Route path="/" element={<Home />} />
       <Route path="/vagas" element={<PageVacancies />} />
       <Route path="/inscricão" element={<Vacancies />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/inscricao" element={<Register />} />
     </Routes>
   )
 }
