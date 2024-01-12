@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const ContainerForm = styled.form`
+interface FormProps {
+  formDashboard?: boolean
+}
+
+export const ContainerForm = styled.form<FormProps>`
   width: 100%;
-  max-width: 37.5rem;
+  max-width: ${({ formDashboard }) => formDashboard !== undefined && '37.5rem'};
   display: flex;
   align-items: center;
   justify-content: center;

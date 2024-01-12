@@ -17,6 +17,7 @@ type listVacancyFormInput = zod.infer<typeof listVacanciesFormSchema>
 
 interface FormSearshProps {
   dashboard: boolean
+  formDashboard?: boolean
 }
 
 export const FormSearch = ({ dashboard }: FormSearshProps) => {

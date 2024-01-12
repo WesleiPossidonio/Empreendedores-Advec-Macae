@@ -1,5 +1,6 @@
-import { FormSearch } from '../../components'
+import { FormSearch, TitleText } from '../../components'
 import { CurrentDate } from './components/CurrentDate'
+import { FormVacancy } from './components/FormVacancy'
 import { TableListVacancy } from './components/TableDashboard'
 import {
   CardDataDashboard,
@@ -15,7 +16,8 @@ export const DashBoard = () => {
     <ContainerDashBoard>
       <ContentDashboard>
         <FormDashboard>
-          <p>heloo</p>
+          <TitleText>Adicionar Vagas</TitleText>
+          <FormVacancy />
         </FormDashboard>
         <ContentDataDashboard>
           <HeaderData>

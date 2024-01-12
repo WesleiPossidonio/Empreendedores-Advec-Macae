@@ -25,6 +25,11 @@ export const ContentDashboard = styled.section`
 
   background-color: ${({ theme }) => theme.colors['base-white']};
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    height: max-content;
+  }
 `
 export const FormDashboard = styled.form`
   width: 50%;
@@ -35,6 +40,10 @@ export const FormDashboard = styled.form`
 
   background-color: ${({ theme }) => theme.colors['base-gray-100']};
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const ContentDataDashboard = styled.div`
@@ -55,6 +64,10 @@ export const ContentDataDashboard = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
   }
 `
 
