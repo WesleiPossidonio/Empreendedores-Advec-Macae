@@ -7,10 +7,6 @@ interface ButtonProps {
   search?: boolean
 }
 
-export const Button = ({ children, search, ...props }: ButtonProps) => {
-  return (
-    <ContainerButton {...props} search={search}>
-      {children}
-    </ContainerButton>
-  )
+export const Button = ({ children, search }: ButtonProps) => {
+  return <ContainerButton search={search}>{children}</ContainerButton>
 }

@@ -8,7 +8,7 @@ import 'swiper/css/pagination'
 
 export const Companies = () => {
   return (
-    <ContainerCompanies>
+    <ContainerCompanies id="companies">
       <TitleText color="theme">Recently Reviewed</TitleText>
       <TextRegular>
         More then 10000 clients who are happy with Us. Are You Next One?

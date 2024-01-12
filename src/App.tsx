@@ -6,6 +6,7 @@ import { AppProvider } from './contexts'
 import { Router } from './routes/routes'
 import { DefaultThemes } from './styles/theme/default'
 import { GlobalStyled } from './styles/theme/globalStyles'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (

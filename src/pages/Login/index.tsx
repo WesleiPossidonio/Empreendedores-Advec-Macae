@@ -1,17 +1,19 @@
-import {
-  Button,
-  Footer,
-  Header,
-  Input,
-  TextRegular,
-  TitleText,
-} from '../../components'
-import { ContainerForm, ContainerHeader, ContainerLogin, Form } from './styled'
+import { useNavigate } from 'react-router-dom'
+
+import { Footer, Header, TextRegular, TitleText } from '../../components'
+import { FormLogin } from './components/formLogin'
+import { ContainerForm, ContainerHeader, ContainerLogin } from './styled'
 
 export const Login = () => {
+  const navigate = useNavigate()
+
+  const handleNavigateToRegister = () => {
+    navigate('/inscricao')
+  }
+
   return (
     <ContainerLogin>
-      <Header />
+      <Header navigatePage />
       <ContainerHeader>
         <TitleText>Nice to See You Again</TitleText>
         <TextRegular color="black" weight={700}>
@@ -20,17 +22,10 @@ export const Login = () => {
       </ContainerHeader>
 
       <ContainerForm>
-        <Form>
-          <TitleText>Log In Please</TitleText>
-
-          <Input placeholder="Digite seu E-mail" />
-          <Input placeholder="Digite sua senha" />
-          <TextRegular>Esqueceu senha?</TextRegular>
-          <Button>Entrar</Button>
-        </Form>
-
+        <FormLogin />
         <TextRegular>
-          Don’t have an account? <span>SIGN UP</span>{' '}
+          Don’t have an account?{' '}
+          <span onClick={handleNavigateToRegister}>SIGN UP</span>{' '}
         </TextRegular>
       </ContainerForm>
 

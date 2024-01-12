@@ -1,10 +1,15 @@
-import { Button, TextRegular, TitleText } from '../../../../components'
+import {
+  Button,
+  TextArea,
+  TextRegular,
+  TitleText,
+} from '../../../../components'
 import { Input } from '../../../../components/Input'
-import { ContainerContact, Form, TextArea } from './styled'
+import { ContainerContact, Form } from './styled'
 
 export const Contact = () => {
   return (
-    <ContainerContact>
+    <ContainerContact id="contact">
       <TitleText color="black">Lorem ipsuariatur!</TitleText>
       <TextRegular>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
@@ -12,8 +17,8 @@ export const Contact = () => {
 
       <Form>
         <Input placeholder="Nome" type="text" />
-        <Input placeholder="E-mail" />
-        <Input placeholder="Telefone" />
+        <Input placeholder="E-mail" type="text" />
+        <Input placeholder="Telefone" type="text" />
         <TextArea placeholder="Digite sua dúvida" />
         <Button search>Enviar</Button>
       </Form>

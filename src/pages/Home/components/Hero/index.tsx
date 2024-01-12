@@ -4,16 +4,16 @@ import { ContainerHero, ContentTitle } from './styled'
 
 export const Hero = () => {
   return (
-    <ContainerHero>
+    <ContainerHero id="home">
       <ContentTitle>
-        <TitleText size="m" color="white">
+        <TitleText size="l" color="white">
           Descubra Oportunidades Incríveis!
         </TitleText>
         <TextRegular weight={600} color="black">
           Encontre Sua Próxima Jornada Profissional Aqui!
         </TextRegular>
 
-        <FormSearch />
+        <FormSearch dashboard={false} />
       </ContentTitle>
     </ContainerHero>
   )

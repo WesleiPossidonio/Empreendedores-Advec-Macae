@@ -40,7 +40,7 @@ export const InputStyled = styled.input`
   border: 2px solid ${({ theme }) => theme.colors['base-white']};
   border-radius: 8.07781px;
 
-  font-size: ${({ theme }) => theme.FontSizes['text-regular-s']};
+  font-size: 0.8835125rem;
   line-height: 1.3125rem;
   font-style: normal;
   font-weight: 400;

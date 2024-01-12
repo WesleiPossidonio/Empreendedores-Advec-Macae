@@ -35,16 +35,22 @@ export const Form = styled.form`
   }
 `
 
-export const TextArea = styled.textarea`
+interface TextAreaProps {
+  error?: boolean
+}
+
+export const TextArea = styled.textarea<TextAreaProps>`
   width: 100%;
   height: 10rem;
 
   padding: 0.5rem;
 
-  border: 2px solid ${({ theme }) => theme.colors['base-white']};
+  border: 2px solid
+    ${({ theme, error }) =>
+      error === true ? theme.colors['base-red'] : theme.colors['base-white']};
   border-radius: 8px;
 
-  font-size: ${({ theme }) => theme.FontSizes['text-regular-s']};
+  font-size: 0.8835125rem;
   line-height: 1.3125rem;
   font-style: normal;
   font-weight: 400;

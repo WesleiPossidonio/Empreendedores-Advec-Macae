@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <ContainerFooter>
       <HeaderFooter>
-        <TitleText size="l">Logo</TitleText>
+        <TitleText size="m">Logo</TitleText>
         <div>
           <TextRegular color="black" weight={700}>
             Todos os Direitos Reservados
@@ -32,7 +32,7 @@ export const Footer = () => {
       </HeaderFooter>
 
       <ContentLink>
-        <TitleText size="l">Navagação</TitleText>
+        <TitleText size="m">Navagação</TitleText>
         <TextRegular>Home</TextRegular>
         <TextRegular>Nossos Valores</TextRegular>
         <TextRegular>Vagas</TextRegular>
@@ -42,7 +42,7 @@ export const Footer = () => {
       </ContentLink>
 
       <ContentContact>
-        <TitleText size="l">Contatos</TitleText>
+        <TitleText size="m">Contatos</TitleText>
         <TextRegular>
           Email:
           <a href="mailto:advecempreendedores@gmail.com">

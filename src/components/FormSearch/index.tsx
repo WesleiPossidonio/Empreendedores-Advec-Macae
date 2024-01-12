@@ -15,7 +15,11 @@ const listVacanciesFormSchema = zod.object({
 
 type listVacancyFormInput = zod.infer<typeof listVacanciesFormSchema>
 
-export const FormSearch = () => {
+interface FormSearshProps {
+  dashboard: boolean
+}
+
+export const FormSearch = ({ dashboard }: FormSearshProps) => {
   const {
     register,
     handleSubmit,
@@ -29,7 +33,12 @@ export const FormSearch = () => {
 
   const handleGetVacancies = async (ListVacancy: listVacancyFormInput) => {
     const { vacancy } = ListVacancy
-    await handleGetListVacancies(vacancy)
+
+    const searchState = {
+      vacancy,
+      dashboard,
+    }
+    await handleGetListVacancies(searchState)
     reset()
   }
 

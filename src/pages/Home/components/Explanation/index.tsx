@@ -27,7 +27,7 @@ export const Explanation = () => {
           <ContainerText>
             <div>
               <span>1º Passo</span>
-              <TitleText size="l" color="black">
+              <TitleText size="m" color="black">
                 Pesquise sua Vaga
               </TitleText>
             </div>
@@ -45,7 +45,7 @@ export const Explanation = () => {
           <ContainerText>
             <div>
               <span>2º Passo</span>
-              <TitleText size="l" color="black">
+              <TitleText size="m" color="black">
                 Copy Share your review
               </TitleText>
             </div>
@@ -64,7 +64,7 @@ export const Explanation = () => {
           <ContainerText>
             <div>
               <span>3º Passo</span>
-              <TitleText size="l" color="black">
+              <TitleText size="m" color="black">
                 Copy Share your review
               </TitleText>
             </div>

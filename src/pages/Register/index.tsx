@@ -1,27 +1,18 @@
-import {
-  Button,
-  Footer,
-  Header,
-  Input,
-  TextRegular,
-  TitleText,
-} from '../../components'
-import { TextArea } from '../Home/components/Contact/styled'
-import {
-  ContainerForm,
-  ContainerHeader,
-  ContainerInputImage,
-  ContainerRegister,
-  ContentInput,
-  Form,
-  InputFile,
-  Label,
-} from './styled'
+import { useNavigate } from 'react-router-dom'
+
+import { Footer, Header, TextRegular, TitleText } from '../../components'
+import { FormRegister } from './components/formRegister'
+import { ContainerForm, ContainerHeader, ContainerRegister } from './styled'
 
 export const Register = () => {
+  const navigate = useNavigate()
+
+  const handleNavigateToLogin = () => {
+    navigate('/login')
+  }
   return (
     <ContainerRegister>
-      <Header />
+      <Header navigatePage />
       <ContainerHeader>
         <TitleText>Nice to See You Again</TitleText>
         <TextRegular color="black" weight={700}>
@@ -30,28 +21,10 @@ export const Register = () => {
       </ContainerHeader>
 
       <ContainerForm>
-        <Form>
-          <TitleText>Log In Please</TitleText>
-
-          <Input placeholder="Digite o nome da empresa" />
-          <Input placeholder="Digite o email da empresa" />
-          <Input placeholder="Digite sua senha" />
-          <TextArea placeholder="Descreva a sua empresa" />
-
-          <ContainerInputImage>
-            <TextRegular weight={700}>Adicione a Logo e o Banner</TextRegular>
-            <ContentInput>
-              <Label htmlFor="logo">Logo</Label>
-              <InputFile type="file" id="logo" />
-              <Label htmlFor="Banner">Banner</Label>
-              <InputFile type="file" id="Banner" />
-            </ContentInput>
-          </ContainerInputImage>
-          <Button>Cadastrar</Button>
-        </Form>
-
+        <FormRegister />
         <TextRegular>
-          Don’t have an account? <span>SIGN UP</span>{' '}
+          Don’t have an account?{' '}
+          <span onClick={handleNavigateToLogin}>SIGN IN</span>{' '}
         </TextRegular>
       </ContainerForm>
 

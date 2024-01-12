@@ -12,7 +12,7 @@ import { ContainerHome } from './styled'
 export const Home = () => {
   return (
     <ContainerHome>
-      <Header />
+      <Header navigatePage={false} />
       <Hero />
       <About />
       <Principes />

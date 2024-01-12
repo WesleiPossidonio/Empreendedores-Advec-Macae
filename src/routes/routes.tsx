@@ -1,6 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Home, Login, PageVacancies, Register, Vacancies } from '../pages'
+import {
+  DashBoard,
+  Home,
+  Login,
+  PageVacancies,
+  Register,
+  Vacancies,
+} from '../pages'
+import { PrivateRoutes } from './PrivateRoutes'
 
 export const Router = () => {
   return (
@@ -10,6 +18,10 @@ export const Router = () => {
       <Route path="/inscricão" element={<Vacancies />} />
       <Route path="/login" element={<Login />} />
       <Route path="/inscricao" element={<Register />} />
+
+      <Route path="/" element={<PrivateRoutes />}>
+        <Route path="/dashboard" element={<DashBoard />} />
+      </Route>
     </Routes>
   )
 }

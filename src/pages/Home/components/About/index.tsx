@@ -4,9 +4,9 @@ import { ContainerAbout, ContentImg, ContentText } from './styled'
 
 export const About = () => {
   return (
-    <ContainerAbout>
+    <ContainerAbout id="about">
       <ContentText>
-        <TitleText size="m">
+        <TitleText size="l">
           O que é <br /> Vagas advec?
         </TitleText>
         <div>

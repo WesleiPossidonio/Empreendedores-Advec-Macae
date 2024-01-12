@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import {
   type ReactNode,
   createContext,
   useCallback,
   useContext,
   useState,
+  useEffect,
 } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import api from '../services/api'
 
@@ -31,9 +34,50 @@ export interface ListVacanciesProps {
   vacancies: CompaniesProps
 }
 
+export interface RegisterCompaniesProps {
+  name_companies: string
+  email: string
+  company_description: string
+  path_banner: string
+  path_img: string
+  password: string
+  branch_of_activity: string
+}
+
+interface GetListVacancies {
+  vacancy: string
+  dashboard: boolean
+}
+
+export interface DataLoginCompanies {
+  email: string
+  password: string
+}
+export interface DataCompany {
+  id: number
+  name_companies: string
+  email: string
+  company_description: string
+  urlImage: string
+  urlBanner: string
+  token: string
+}
+export interface ListVacancyProps {
+  vacancies_id: number
+  name_vacancies: string
+  number_of_vacancies: string
+  job_description: string
+  vacancy_requirements: string
+  additional_information: string
+}
+
 interface ListCompanyType {
-  handleGetListVacancies: (vacancy: string) => Promise<void>
+  handleGetListVacancies: (vacancy: GetListVacancies) => Promise<void>
+  handleRegiterCompanies: (data: RegisterCompaniesProps) => Promise<void>
+  HandleLoginCompanies: (data: DataLoginCompanies) => Promise<void>
   searchVacancy: string
+  dataCompany: DataCompany
+  listVacancy: ListVacancyProps[]
 }
 
 interface ListCompanyProps {
@@ -44,33 +88,158 @@ interface ListCompanyProps {
 export const CompanyContext = createContext({} as ListCompanyType)
 
 export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  const [dataCompany, setDataCompany] = useState<DataCompany>({} as DataCompany)
+  const [listVacancy, setListVacancy] = useState<ListVacancyProps[]>([])
   const [searchVacancy, setSearchVacancy] = useState('')
   const navigate = useNavigate()
 
+  const GetListVacancy = async () => {
+    try {
+      const response = await api.get('listVacancies')
+      const { data } = response
+
+      const listVacancies: ListVacancyProps[] = response.data
+      setListVacancy(listVacancies)
+
+      console.log(data)
+    } catch (error) {
+      console.error('Erro ao obter a lista de vagas:', error)
+    }
+  }
+
+  useEffect(() => {
+    void GetListVacancy()
+  }, [])
+
   const handleGetListVacancies = useCallback(
-    async (vacancy: string) => {
-      setSearchVacancy(vacancy)
+    async (data: GetListVacancies) => {
+      const { vacancy, dashboard } = data
+      setSearchVacancy(data.vacancy)
+      const response = await api.get('listVacancies')
+
+      if (dashboard) {
+        const { data } = response
+
+        const listVacanciesSelected: ListVacancyProps[] = data.filter(
+          (list: ListVacanciesProps) =>
+            list.name_vacancies.toLowerCase().startsWith(vacancy.toLowerCase()),
+        )
+
+        setListVacancy(listVacanciesSelected)
+      } else {
+        try {
+          const { data } = response
+
+          const listVacanciesSelected = data.filter(
+            (list: ListVacanciesProps) =>
+              list.name_vacancies
+                .toLowerCase()
+                .startsWith(vacancy.toLowerCase()),
+          )
+
+          navigate('/vagas', {
+            state: listVacanciesSelected,
+          })
+        } catch (error) {
+          console.error('Erro ao obter a lista de vagas:', error)
+        }
+      }
+    },
+    [navigate],
+  )
+
+  const handleRegiterCompanies = useCallback(
+    async (data: RegisterCompaniesProps) => {
+      const {
+        name_companies,
+        email,
+        company_description,
+        path_banner,
+        path_img,
+        password,
+        branch_of_activity,
+      } = data
+
       try {
-        const response = await api.get('listVacancies')
+        const formData = new FormData()
+        formData.append('name_companies', name_companies)
+        formData.append('email', email)
+        formData.append('company_description', company_description)
+        formData.append('password', password)
+        formData.append('path_banner', path_banner)
+        formData.append('path_img', path_img)
+        formData.append('branch_of_activity', branch_of_activity)
+
+        await toast.promise(
+          api.post('companies', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }),
+          {
+            pending: 'Verificando seus dados',
+            success: 'Empresa Cadastrada!',
+            error: 'Verifique seus dados e tente novamente 🤯',
+          },
+        )
+
+        setTimeout(() => {
+          navigate('/login')
+        }, 1000)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    [navigate],
+  )
+
+  const HandleLoginCompanies = useCallback(
+    async (data: DataLoginCompanies) => {
+      const { email, password } = data
+
+      try {
+        const response = await toast.promise(
+          api.post('sessions', { email, password }),
+          {
+            pending: 'Verificando seus dados',
+            success: 'Seja Bem-vindo(a)!',
+            error: 'Verifique seu e-mail e senha 🤯',
+          },
+        )
 
         const { data } = response
 
-        const listVacanciesSelected = data.filter((list: ListVacanciesProps) =>
-          list.name_vacancies.toLowerCase().startsWith(vacancy.toLowerCase()),
+        localStorage.setItem(
+          'AdvecEmpreendedores:EmpreendedoresData1.0',
+          JSON.stringify(data),
         )
 
-        navigate('/vagas', {
-          state: listVacanciesSelected,
-        })
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        setDataCompany(data)
+
+        setTimeout(() => {
+          navigate('/dashboard')
+        }, 1000)
       } catch (error) {
-        console.error('Erro ao obter a lista de vagas:', error)
+        console.log(error)
       }
     },
     [navigate],
   )
 
   return (
-    <CompanyContext.Provider value={{ handleGetListVacancies, searchVacancy }}>
+    <CompanyContext.Provider
+      value={{
+        handleGetListVacancies,
+        handleRegiterCompanies,
+        HandleLoginCompanies,
+        searchVacancy,
+        dataCompany,
+        listVacancy,
+      }}
+    >
       {children}
     </CompanyContext.Provider>
   )
