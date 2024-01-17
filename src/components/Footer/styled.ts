@@ -23,6 +23,11 @@ export const HeaderFooter = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+
+  > img {
+    width: 16rem;
+    margin-bottom: 1rem;
+  }
 `
 
 export const ContentLink = styled.div``

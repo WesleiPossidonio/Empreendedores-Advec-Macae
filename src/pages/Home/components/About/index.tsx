@@ -5,7 +5,7 @@ import { ContainerAbout, ContentImg, ContentText } from './styled'
 export const About = () => {
   return (
     <ContainerAbout id="about">
-      <ContentText>
+      <ContentText data-aos="fade-right">
         <TitleText size="l">
           O que é <br /> Vagas advec?
         </TitleText>
@@ -26,8 +26,8 @@ export const About = () => {
       </ContentText>
 
       <ContentImg>
-        <img className="imgOne" src={ImageAbout} alt="" />
-        <img src={ImageAbout} alt="" />
+        <img className="imgOne" src={ImageAbout} alt="" data-aos="fade-down" />
+        <img src={ImageAbout} alt="" data-aos="fade-up" />
       </ContentImg>
     </ContainerAbout>
   )

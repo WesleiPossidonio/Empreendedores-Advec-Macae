@@ -1,5 +1,6 @@
 import { TextRegular, TitleText } from '..'
 
+import Logo from '../../assets/logo-advec2.webp'
 import {
   ContainerFooter,
   ContentContact,
@@ -11,7 +12,7 @@ export const Footer = () => {
   return (
     <ContainerFooter>
       <HeaderFooter>
-        <TitleText size="m">Logo</TitleText>
+        <img src={Logo} alt="" />
         <div>
           <TextRegular color="black" weight={700}>
             Todos os Direitos Reservados

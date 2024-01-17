@@ -26,6 +26,10 @@ export const ContainerHeader = styled.header<HeaderProps>`
     z-index: 9999;
   }
 
+  > img {
+    width: 15rem;
+  }
+
   @media (max-width: 768px) {
     > svg {
       display: block;

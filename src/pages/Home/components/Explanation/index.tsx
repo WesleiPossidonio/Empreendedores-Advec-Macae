@@ -25,8 +25,8 @@ export const Explanation = () => {
 
       <ContainerExpanation>
         <Content>
-          <Image src={ImageOne} alt="" />
-          <ContainerText>
+          <Image src={ImageOne} alt="" data-aos="zoom-in" />
+          <ContainerText data-aos="fade-left">
             <div>
               <span>1º Passo</span>
               <TitleText size="m" color="black">
@@ -44,7 +44,7 @@ export const Explanation = () => {
         </Content>
 
         <Content>
-          <ContainerText>
+          <ContainerText data-aos="fade-right">
             <div>
               <span>2º Passo</span>
               <TitleText size="m" color="black">
@@ -58,12 +58,12 @@ export const Explanation = () => {
               scrambled it to make
             </TextRegular>
           </ContainerText>
-          <Image src={ImageTwo} alt="" />
+          <Image src={ImageTwo} alt="" data-aos="zoom-in" />
         </Content>
 
         <Content>
-          <Image src={ImageTree} alt="" />
-          <ContainerText>
+          <Image src={ImageTree} alt="" data-aos="zoom-in" />
+          <ContainerText data-aos="fade-left">
             <div>
               <span>3º Passo</span>
               <TitleText size="m" color="black">

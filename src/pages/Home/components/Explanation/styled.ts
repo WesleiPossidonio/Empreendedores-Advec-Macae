@@ -63,6 +63,11 @@ export const Image = styled.img`
     order: 2;
     width: 14rem;
   }
+
+  @media (max-width: 500px) {
+    order: 2;
+    width: 12rem;
+  }
 `
 
 export const ContainerText = styled.div`

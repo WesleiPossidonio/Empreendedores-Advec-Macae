@@ -30,7 +30,7 @@ export const Principes = () => {
 
       <ContainerCards>
         <div className="contentCardOne">
-          <CardAbout>
+          <CardAbout data-aos="zoom-in">
             <Church size={55} weight="fill" />
             <ContainerTextCard>
               <TitleText size="m">Lorem ipsum dolor sit</TitleText>
@@ -40,7 +40,8 @@ export const Principes = () => {
               </TextRegular>
             </ContainerTextCard>
           </CardAbout>
-          <CardAbout>
+
+          <CardAbout data-aos="zoom-in">
             <DesktopTower size={55} weight="fill" />
             <ContainerTextCard>
               <TitleText size="m">Lorem ipsum dolor sit</TitleText>
@@ -53,7 +54,7 @@ export const Principes = () => {
         </div>
 
         <div className="contentCardTwo">
-          <CardAbout>
+          <CardAbout data-aos="zoom-in">
             <ClipboardText size={55} weight="fill" />
             <ContainerTextCard>
               <TitleText size="m">Lorem ipsum dolor sit</TitleText>
@@ -63,7 +64,7 @@ export const Principes = () => {
               </TextRegular>
             </ContainerTextCard>
           </CardAbout>
-          <CardAbout>
+          <CardAbout data-aos="zoom-in">
             <Handshake size={55} weight="fill" />
             <ContainerTextCard>
               <TitleText size="m">Lorem ipsum dolor sit</TitleText>

@@ -9,7 +9,7 @@ import { ContainerContact, Form } from './styled'
 
 export const Contact = () => {
   return (
-    <ContainerContact id="contact">
+    <ContainerContact id="contact" data-aos="zoom-in">
       <TitleText color="black" size="l">
         Entre em contato Conosco!
       </TitleText>

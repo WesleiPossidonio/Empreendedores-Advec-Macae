@@ -49,6 +49,10 @@ export const ContentImg = styled.div`
     @media (max-width: 900px) {
       width: 11.5rem;
     }
+
+    @media (max-width: 500px) {
+      width: 9.5rem;
+    }
   }
 
   .imgOne {
