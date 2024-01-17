@@ -53,7 +53,9 @@ export const PageVacancies = () => {
 
   const handleGetVacancies = async (ListVacancy: listVacancyFormInput) => {
     const { vacancy } = ListVacancy
-    await handleGetListVacancies(vacancy)
+
+    const sendData = { vacancy, dashboard: false }
+    await handleGetListVacancies(sendData)
     reset()
   }
 

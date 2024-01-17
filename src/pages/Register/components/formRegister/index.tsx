@@ -128,7 +128,7 @@ export const FormRegister = () => {
       <TextArea
         placeholder="Descreva a sua empresa"
         {...register('company_description')}
-        error={errors.company_description?.message !== undefined && true}
+        error={errors.company_description?.message}
       />
 
       <ContainerInputImage>
