@@ -119,7 +119,9 @@ export const PageVacancies = () => {
                 {...register('vacancy')}
                 error={errors.vacancy?.message}
               />
-              <Button search>Buscar</Button>
+              <Button bg="theme" search>
+                Buscar
+              </Button>
             </form>
           </ContentDataVacancies>
 
@@ -142,7 +144,7 @@ export const PageVacancies = () => {
                 {...register('vacancy')}
                 error={errors.vacancy?.message}
               />
-              <Button>Buscar</Button>
+              <Button bg="theme">Buscar</Button>
             </form>
           </ContentDataVacancies>
 

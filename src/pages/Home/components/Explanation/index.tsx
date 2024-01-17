@@ -15,7 +15,9 @@ export const Explanation = () => {
   return (
     <ContainerExplanation>
       <ContentTitle>
-        <TitleText color="black">How It Works</TitleText>
+        <TitleText color="black" size="l">
+          Como buscar uma Vaga?
+        </TitleText>
         <TextRegular>
           Lorem Ipsum is simply dummy text of the printing and typesetting
         </TextRegular>
@@ -46,7 +48,7 @@ export const Explanation = () => {
             <div>
               <span>2º Passo</span>
               <TitleText size="m" color="black">
-                Copy Share your review
+                Analíse a vaga Escolhida
               </TitleText>
             </div>
             <TextRegular size="s" weight={400} color="black">
@@ -65,7 +67,7 @@ export const Explanation = () => {
             <div>
               <span>3º Passo</span>
               <TitleText size="m" color="black">
-                Copy Share your review
+                Se inscreva a Vaga
               </TitleText>
             </div>
             <TextRegular size="s" weight={400} color="black">
@@ -77,7 +79,9 @@ export const Explanation = () => {
           </ContainerText>
         </Content>
 
-        <Button search>Buscar Vagas</Button>
+        <Button bg="black" search>
+          Buscar Vagas
+        </Button>
       </ContainerExpanation>
     </ContainerExplanation>
   )

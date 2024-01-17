@@ -9,6 +9,14 @@ export const ContainerDashBoard = styled.main`
   justify-content: center;
 
   background-color: ${({ theme }) => theme.colors['base-gray-200']};
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0;
+  }
 `
 
 export const ContentDashboard = styled.section`
@@ -30,8 +38,12 @@ export const ContentDashboard = styled.section`
     flex-direction: column-reverse;
     height: max-content;
   }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 `
-export const FormDashboard = styled.form`
+export const FormDashboard = styled.div`
   width: 50%;
   height: 90%;
   padding: 3rem;
@@ -83,9 +95,38 @@ export const CardDataDashboard = styled.div`
   width: 50%;
   height: 10rem;
 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
   border-radius: 8px;
   padding: 1.5rem;
 
   background-color: ${({ theme }) => theme.colors['base-gray-100']};
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`
+export const CardDataCompanies = styled.div`
+  width: 50%;
+  height: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  #exit {
+    cursor: pointer;
+  }
+`
+
+export const HeaderCard = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+`
+export const Line = styled.div`
+  height: 1.8rem;
+  border-left: 2px solid ${({ theme }) => theme.colors['base-theme']};
 `

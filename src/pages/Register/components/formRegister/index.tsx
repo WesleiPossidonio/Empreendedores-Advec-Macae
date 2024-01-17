@@ -154,7 +154,7 @@ export const FormRegister = () => {
           />
         </ContentInput>
       </ContainerInputImage>
-      <Button>Cadastrar</Button>
+      <Button bg="theme">Cadastrar</Button>
     </Form>
   )
 }

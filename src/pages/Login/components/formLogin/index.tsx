@@ -50,7 +50,7 @@ export const FormLogin = () => {
         error={errors.password?.message}
       />
       <TextRegular>Esqueceu senha?</TextRegular>
-      <Button>Entrar</Button>
+      <Button bg="theme">Entrar</Button>
     </Form>
   )
 }

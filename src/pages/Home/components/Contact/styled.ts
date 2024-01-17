@@ -36,7 +36,7 @@ export const Form = styled.form`
 `
 
 interface TextAreaProps {
-  error?: boolean
+  error?: string
 }
 
 export const TextArea = styled.textarea<TextAreaProps>`
@@ -44,10 +44,11 @@ export const TextArea = styled.textarea<TextAreaProps>`
   height: 10rem;
 
   padding: 0.5rem;
-
   border: 2px solid
     ${({ theme, error }) =>
-      error === true ? theme.colors['base-red'] : theme.colors['base-white']};
+      error !== undefined
+        ? theme.colors['base-red']
+        : theme.colors['base-white']};
   border-radius: 8px;
 
   font-size: 0.8835125rem;
@@ -64,7 +65,7 @@ export const TextArea = styled.textarea<TextAreaProps>`
   }
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors['base-black']};
+    border: 2px solid ${({ theme }) => theme.colors['base-theme']};
     border-radius: 8px;
   }
 `

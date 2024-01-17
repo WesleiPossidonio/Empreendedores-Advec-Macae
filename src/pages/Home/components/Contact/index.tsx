@@ -10,7 +10,9 @@ import { ContainerContact, Form } from './styled'
 export const Contact = () => {
   return (
     <ContainerContact id="contact">
-      <TitleText color="black">Lorem ipsuariatur!</TitleText>
+      <TitleText color="black" size="l">
+        Entre em contato Conosco!
+      </TitleText>
       <TextRegular>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
       </TextRegular>
@@ -20,7 +22,9 @@ export const Contact = () => {
         <Input placeholder="E-mail" type="text" />
         <Input placeholder="Telefone" type="text" />
         <TextArea placeholder="Digite sua dúvida" />
-        <Button search>Enviar</Button>
+        <Button bg="black" search>
+          Enviar
+        </Button>
       </Form>
     </ContainerContact>
   )

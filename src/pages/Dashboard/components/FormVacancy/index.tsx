@@ -1,16 +1,19 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
+
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { Button, Input, TextArea } from '../../../../components'
-import { ContainerForm } from './styled'
+import { Button, Input } from '../../../../components'
+import { useListVocancies } from '../../../../contexts/companyContext'
+import { TextArea } from '../../../Home/components/Contact/styled'
+import { Form } from './styled'
 
 const AddVacancyFormSchema = zod.object({
   name_vacancies: zod.string().min(1, 'Por Favor, descreva o Nome da Vaga'),
   number_of_vacancies: zod
     .string()
-    .min(1, 'Por Favor, descreva o Nome da Vaga'),
+    .min(1, 'Por Favor, descreva  a quantidade de vagas'),
   job_description: zod.string().min(1, 'Por Favor, descreva o Nome da Vaga'),
   vacancy_requirements: zod
     .string()
@@ -29,34 +32,24 @@ export const FormVacancy = () => {
     resolver: zodResolver(AddVacancyFormSchema),
   })
 
+  const { createNewVacancies } = useListVocancies()
+
   const handleCreateVacancy = (data: createVacancyFormInputs) => {
-    const {
-      job_description,
-      name_vacancies,
-      number_of_vacancies,
-      vacancy_requirements,
-    } = data
-
-    console.log({
-      job_description,
-      name_vacancies,
-      number_of_vacancies,
-      vacancy_requirements,
-    })
-
+    void createNewVacancies(data)
     reset()
   }
+
   return (
-    <ContainerForm onSubmit={handleSubmit(handleCreateVacancy)}>
+    <Form onSubmit={handleSubmit(handleCreateVacancy)}>
       <Input
-        placeholder="Nome da vaga"
+        placeholder="Digite o nome da vaga"
         {...register('name_vacancies')}
         error={errors.name_vacancies?.message}
       />
       <Input
         placeholder="Nº de vagas"
         {...register('number_of_vacancies')}
-        error={errors.name_vacancies?.message}
+        error={errors.number_of_vacancies?.message}
       />
       <TextArea
         placeholder="Descrição sobre a vaga"
@@ -68,7 +61,7 @@ export const FormVacancy = () => {
         {...register('vacancy_requirements')}
         error={errors.vacancy_requirements?.message}
       />
-      <Button>Cadastrar</Button>
-    </ContainerForm>
+      <Button bg="theme">Cadastrar</Button>
+    </Form>
   )
 }

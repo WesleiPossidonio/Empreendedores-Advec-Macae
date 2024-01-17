@@ -18,7 +18,9 @@ export const Principes = () => {
   return (
     <ContainerAbout id="principes">
       <ContainerTitle>
-        <TitleText color="theme">Lorem ipsum dolor</TitleText>
+        <TitleText size="l" color="theme">
+          Nossa Visão
+        </TitleText>
         <TextRegular color="gray" size="m">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam,
           consequatur! Expedita eum commodi dolor eveniet, eaque ipsam

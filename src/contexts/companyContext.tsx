@@ -21,7 +21,6 @@ interface CompaniesProps {
   urlImage: string
   urlBanner: string
 }
-
 export interface ListVacanciesProps {
   nameSearch: string
   id: number
@@ -33,7 +32,6 @@ export interface ListVacanciesProps {
   created_at: string
   vacancies: CompaniesProps
 }
-
 export interface RegisterCompaniesProps {
   name_companies: string
   email: string
@@ -43,12 +41,10 @@ export interface RegisterCompaniesProps {
   password: string
   branch_of_activity: string
 }
-
 interface GetListVacancies {
   vacancy: string
   dashboard: boolean
 }
-
 export interface DataLoginCompanies {
   email: string
   password: string
@@ -70,11 +66,18 @@ export interface ListVacancyProps {
   vacancy_requirements: string
   additional_information: string
 }
-
+export interface VacanciesProps {
+  name_vacancies: string
+  number_of_vacancies: string
+  job_description: string
+  vacancy_requirements: string
+}
 interface ListCompanyType {
   handleGetListVacancies: (vacancy: GetListVacancies) => Promise<void>
   handleRegiterCompanies: (data: RegisterCompaniesProps) => Promise<void>
   HandleLoginCompanies: (data: DataLoginCompanies) => Promise<void>
+  createNewVacancies: (data: VacanciesProps) => Promise<void>
+  listCompanies: DataCompany[]
   searchVacancy: string
   dataCompany: DataCompany
   listVacancy: ListVacancyProps[]
@@ -90,19 +93,33 @@ export const CompanyContext = createContext({} as ListCompanyType)
 export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const [dataCompany, setDataCompany] = useState<DataCompany>({} as DataCompany)
+  const [listCompanies, setListCompanies] = useState<DataCompany[]>([])
   const [listVacancy, setListVacancy] = useState<ListVacancyProps[]>([])
   const [searchVacancy, setSearchVacancy] = useState('')
   const navigate = useNavigate()
 
+  const getListConpanies = useCallback(async () => {
+    try {
+      const response = await api.get('listCompanies')
+
+      const newListCompanies: DataCompany[] = response.data
+
+      setListCompanies(newListCompanies)
+    } catch (error) {}
+  }, [])
+
   const GetListVacancy = async () => {
+    const dataCompanies = localStorage.getItem(
+      'AdvecEmpreendedores:EmpreendedoresData1.0',
+    )
+
+    dataCompanies !== null && setDataCompany(JSON.parse(dataCompanies))
+
     try {
       const response = await api.get('listVacancies')
-      const { data } = response
 
       const listVacancies: ListVacancyProps[] = response.data
       setListVacancy(listVacancies)
-
-      console.log(data)
     } catch (error) {
       console.error('Erro ao obter a lista de vagas:', error)
     }
@@ -110,6 +127,7 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
 
   useEffect(() => {
     void GetListVacancy()
+    void getListConpanies()
   }, [])
 
   const handleGetListVacancies = useCallback(
@@ -195,6 +213,36 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
     [navigate],
   )
 
+  const createNewVacancies = useCallback(
+    async (data: VacanciesProps) => {
+      const {
+        job_description,
+        name_vacancies,
+        number_of_vacancies,
+        vacancy_requirements,
+      } = data
+
+      const newVacacies = {
+        job_description,
+        name_vacancies,
+        number_of_vacancies,
+        vacancy_requirements,
+        vacancies_id: dataCompany.id,
+      }
+
+      try {
+        await toast.promise(api.post('vacancies', newVacacies), {
+          pending: 'Verificando seus dados',
+          success: 'Vaga criada com sucesso!',
+          error: 'Verifique seus dado e faça novamente! 🤯',
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    [dataCompany],
+  )
+
   const HandleLoginCompanies = useCallback(
     async (data: DataLoginCompanies) => {
       const { email, password } = data
@@ -235,6 +283,8 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         handleGetListVacancies,
         handleRegiterCompanies,
         HandleLoginCompanies,
+        createNewVacancies,
+        listCompanies,
         searchVacancy,
         dataCompany,
         listVacancy,

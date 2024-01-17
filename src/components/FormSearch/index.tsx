@@ -53,7 +53,9 @@ export const FormSearch = ({ dashboard }: FormSearshProps) => {
           id="vacancy"
         />
 
-        <Button search>Buscar</Button>
+        <Button bg="theme" search>
+          Buscar
+        </Button>
       </div>
       {errors.vacancy !== null && (
         <TextRegular color="red">{errors.vacancy?.message}</TextRegular>
