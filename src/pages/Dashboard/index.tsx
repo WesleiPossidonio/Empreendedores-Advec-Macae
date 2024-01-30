@@ -56,7 +56,7 @@ export const DashBoard = () => {
             </CardDataCompanies>
           </HeaderData>
 
-          <FormSearch dashboard={true} />
+          <FormSearch selectedPage="dashboard" formDashboard />
 
           <TableListVacancy />
         </ContentDataDashboard>
