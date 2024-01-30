@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 
@@ -8,7 +9,14 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 export const Companies = () => {
-  const { listCompanies } = useListVocancies()
+  const { listCompanies, setPageStatusJobSearch } = useListVocancies()
+
+  const navigate = useNavigate()
+
+  const handleNavigateToCompanies = () => {
+    navigate('/empresas')
+    setPageStatusJobSearch('PageCompanies')
+  }
   return (
     <ContainerCompanies id="companies">
       <TitleText color="theme" size="l">
@@ -55,7 +63,7 @@ export const Companies = () => {
           )
         })}
       </Swiper>
-      <Button search bg="theme">
+      <Button search bg="theme" onClick={handleNavigateToCompanies}>
         Buscar Empresas
       </Button>
     </ContainerCompanies>

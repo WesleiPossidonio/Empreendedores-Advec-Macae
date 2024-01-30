@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 
 import {
+  AllCompanies,
   DashBoard,
   Home,
   Login,
@@ -15,6 +16,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/vagas" element={<PageVacancies />} />
+      <Route path="/empresas" element={<AllCompanies />} />
       <Route path="/inscricão" element={<Vacancies />} />
       <Route path="/login" element={<Login />} />
       <Route path="/inscricao" element={<Register />} />

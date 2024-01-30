@@ -24,7 +24,7 @@ export const PageFilteredVacancies = ({
     <ContentData>
       <ContentDataVacancies>
         <ContentVacancies>
-          <TitleText>{searchVacancy}</TitleText>
+          <TitleText weight={400}>{searchVacancy}</TitleText>
           <TextRegular color="black" weight={700} size="s">
             {listOfFilteredVacancies.length < 1
               ? 'Vaga Não Encontrada'

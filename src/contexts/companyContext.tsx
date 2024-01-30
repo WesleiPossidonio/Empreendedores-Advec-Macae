@@ -57,6 +57,7 @@ export interface DataCompany {
   urlImage: string
   urlBanner: string
   token: string
+  branch_of_activity: string
 }
 export interface ListVacancyProps {
   vacancies_id: number
@@ -78,7 +79,9 @@ interface ListCompanyType {
   handleRegiterCompanies: (data: RegisterCompaniesProps) => Promise<void>
   HandleLoginCompanies: (data: DataLoginCompanies) => Promise<void>
   createNewVacancies: (data: VacanciesProps) => Promise<void>
+  setPageStatusJobSearch: (data: string) => void
   listCompanies: DataCompany[]
+  filteredAllListCompanies: DataCompany[]
   searchVacancy: string
   dataCompany: DataCompany
   listVacancy: ListVacancyProps[]
@@ -97,6 +100,9 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const [dataCompany, setDataCompany] = useState<DataCompany>({} as DataCompany)
   const [listCompanies, setListCompanies] = useState<DataCompany[]>([])
+  const [filteredAllListCompanies, setFilteredAllListCompanies] = useState<
+    DataCompany[]
+  >([])
   const [listVacancy, setListVacancy] = useState<ListVacancyProps[]>([])
   const [listOfFilteredVacancies, setListOfFilteredVacancies] = useState<
     ListVacancyProps[]
@@ -151,8 +157,16 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         setListOfFilteredVacancies(listVacanciesSelected)
         navigate('/vagas')
       }
+
+      if (selectedPage === 'searchCompanies') {
+        const listCompaniesSelected = listCompanies.filter((list) =>
+          list.name_companies.toLowerCase().startsWith(vacancy.toLowerCase()),
+        )
+
+        setFilteredAllListCompanies(listCompaniesSelected)
+      }
     },
-    [listVacancy, navigate],
+    [listCompanies, listVacancy, navigate],
   )
 
   const handleRegiterCompanies = useCallback(
@@ -272,12 +286,14 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         handleRegiterCompanies,
         HandleLoginCompanies,
         createNewVacancies,
+        setPageStatusJobSearch,
         listCompanies,
         searchVacancy,
         dataCompany,
         listVacancy,
         pageStatusJobSearch,
         listOfFilteredVacancies,
+        filteredAllListCompanies,
       }}
     >
       {children}

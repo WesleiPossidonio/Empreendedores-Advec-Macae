@@ -125,8 +125,11 @@ export const CardVacancies = styled.div`
   background-color: ${({ theme }) => theme.colors['base-gray-100']};
 
   cursor: pointer;
-
   transition: 0.2s ease-in-out;
+
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
   &:hover {
     transform: translateY(-6px);
