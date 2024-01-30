@@ -15,17 +15,17 @@ export const Login = () => {
     <ContainerLogin>
       <Header navigatePage />
       <ContainerHeader>
-        <TitleText>Nice to See You Again</TitleText>
+        <TitleText size="l">Seja Bem vindo!</TitleText>
         <TextRegular color="black" weight={700}>
-          Welcome back
+          Entre Agora!
         </TextRegular>
       </ContainerHeader>
 
       <ContainerForm>
         <FormLogin />
         <TextRegular>
-          Don’t have an account?{' '}
-          <span onClick={handleNavigateToRegister}>SIGN UP</span>{' '}
+          Não possuo conta?{' '}
+          <span onClick={handleNavigateToRegister}>Inscreva-se</span>{' '}
         </TextRegular>
       </ContainerForm>
 

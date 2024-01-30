@@ -43,7 +43,7 @@ export interface RegisterCompaniesProps {
 }
 interface GetListVacancies {
   vacancy: string
-  dashboard: boolean
+  selectedPage: string
 }
 export interface DataLoginCompanies {
   email: string
@@ -65,6 +65,7 @@ export interface ListVacancyProps {
   job_description: string
   vacancy_requirements: string
   additional_information: string
+  vacancies: DataCompany
 }
 export interface VacanciesProps {
   name_vacancies: string
@@ -81,6 +82,8 @@ interface ListCompanyType {
   searchVacancy: string
   dataCompany: DataCompany
   listVacancy: ListVacancyProps[]
+  listOfFilteredVacancies: ListVacancyProps[]
+  pageStatusJobSearch: string
 }
 
 interface ListCompanyProps {
@@ -95,26 +98,22 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   const [dataCompany, setDataCompany] = useState<DataCompany>({} as DataCompany)
   const [listCompanies, setListCompanies] = useState<DataCompany[]>([])
   const [listVacancy, setListVacancy] = useState<ListVacancyProps[]>([])
+  const [listOfFilteredVacancies, setListOfFilteredVacancies] = useState<
+    ListVacancyProps[]
+  >([])
   const [searchVacancy, setSearchVacancy] = useState('')
+  const [pageStatusJobSearch, setPageStatusJobSearch] = useState('')
   const navigate = useNavigate()
 
   const getListConpanies = useCallback(async () => {
     try {
       const response = await api.get('listCompanies')
-
       const newListCompanies: DataCompany[] = response.data
-
       setListCompanies(newListCompanies)
     } catch (error) {}
   }, [])
 
   const GetListVacancy = async () => {
-    const dataCompanies = localStorage.getItem(
-      'AdvecEmpreendedores:EmpreendedoresData1.0',
-    )
-
-    dataCompanies !== null && setDataCompany(JSON.parse(dataCompanies))
-
     try {
       const response = await api.get('listVacancies')
 
@@ -128,43 +127,32 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   useEffect(() => {
     void GetListVacancy()
     void getListConpanies()
-  }, [])
+  }, [getListConpanies])
 
   const handleGetListVacancies = useCallback(
     async (data: GetListVacancies) => {
-      const { vacancy, dashboard } = data
-      setSearchVacancy(data.vacancy)
-      const response = await api.get('listVacancies')
+      const { vacancy, selectedPage } = data
+      setSearchVacancy(vacancy)
+      setPageStatusJobSearch(selectedPage)
 
-      if (dashboard) {
-        const { data } = response
-
-        const listVacanciesSelected: ListVacancyProps[] = data.filter(
-          (list: ListVacanciesProps) =>
+      if (selectedPage === 'pageJob') {
+        const listVacanciesSelected: ListVacancyProps[] = listVacancy.filter(
+          (list) =>
             list.name_vacancies.toLowerCase().startsWith(vacancy.toLowerCase()),
         )
+        setListOfFilteredVacancies(listVacanciesSelected)
+      }
 
-        setListVacancy(listVacanciesSelected)
-      } else {
-        try {
-          const { data } = response
+      if (selectedPage === 'homePage') {
+        const listVacanciesSelected = listVacancy.filter((list) =>
+          list.name_vacancies.toLowerCase().startsWith(vacancy.toLowerCase()),
+        )
 
-          const listVacanciesSelected = data.filter(
-            (list: ListVacanciesProps) =>
-              list.name_vacancies
-                .toLowerCase()
-                .startsWith(vacancy.toLowerCase()),
-          )
-
-          navigate('/vagas', {
-            state: listVacanciesSelected,
-          })
-        } catch (error) {
-          console.error('Erro ao obter a lista de vagas:', error)
-        }
+        setListOfFilteredVacancies(listVacanciesSelected)
+        navigate('/vagas')
       }
     },
-    [navigate],
+    [listVacancy, navigate],
   )
 
   const handleRegiterCompanies = useCallback(
@@ -288,6 +276,8 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         searchVacancy,
         dataCompany,
         listVacancy,
+        pageStatusJobSearch,
+        listOfFilteredVacancies,
       }}
     >
       {children}

@@ -14,17 +14,17 @@ export const Register = () => {
     <ContainerRegister>
       <Header navigatePage />
       <ContainerHeader>
-        <TitleText>Nice to See You Again</TitleText>
+        <TitleText size="l">Faça Parte desse Projeto</TitleText>
         <TextRegular color="black" weight={700}>
-          Welcome back
+          Inscreva-se Agora!
         </TextRegular>
       </ContainerHeader>
 
       <ContainerForm>
         <FormRegister />
         <TextRegular>
-          Don’t have an account?{' '}
-          <span onClick={handleNavigateToLogin}>SIGN IN</span>{' '}
+          Já possuo conta?{' '}
+          <span onClick={handleNavigateToLogin}>Fazer Login</span>{' '}
         </TextRegular>
       </ContainerForm>
 

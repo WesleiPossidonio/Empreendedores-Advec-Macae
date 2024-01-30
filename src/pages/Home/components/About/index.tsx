@@ -1,8 +1,14 @@
+import { useNavigate } from 'react-router-dom'
+
 import ImageAbout from '../../../../assets/ImageAboutOne.avif'
-import { TextRegular, TitleText } from '../../../../components'
+import { Button, TextRegular, TitleText } from '../../../../components'
 import { ContainerAbout, ContentImg, ContentText } from './styled'
 
 export const About = () => {
+  const navigate = useNavigate()
+  const handleNavigateToRegister = () => {
+    navigate('/inscricao')
+  }
   return (
     <ContainerAbout id="about">
       <ContentText data-aos="fade-right">
@@ -10,18 +16,22 @@ export const About = () => {
           O que é <br /> Vagas advec?
         </TitleText>
         <div>
-          <TextRegular>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Consectetur unde earum ad facilis debitis porro voluptate quaerat
-            cupiditate placeat neque recusandae reprehenderit, ab dolor
-            doloribus atque qui. Autem, facilis et?
+          <TextRegular color="black">
+            Em busca de um propósito maior, criamos este site para unir empresas
+            locais a membros da igreja em busca de oportunidades. Aqui, cada
+            vaga é mais do que um trabalho é uma chance de crescimento e
+            realização. Empresas podem cadastrar vagas, enquanto membros da
+            igreja encontram empregos locais que ressoam com seus valores.
           </TextRegular>
-          <TextRegular>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Consectetur unde earum ad facilis debitis porro voluptate quaerat
-            cupiditate placeat neque recusandae reprehenderit, ab dolor
-            doloribus
+          <TextRegular color="black">
+            Uma comunidade que se apoia, cresce e prospera junto. Seja um
+            empresário visionário ou alguém em busca de novas oportunidades.
+            Cadastre-se hoje e junte-se a nós na construção de um futuro onde
+            cada emprego é uma porta aberta para sonhos realizados.
           </TextRegular>
+          <Button bg="theme" search={true} onClick={handleNavigateToRegister}>
+            Cadastrar Agora!
+          </Button>
         </div>
       </ContentText>
 

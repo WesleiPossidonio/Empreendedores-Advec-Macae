@@ -20,9 +20,16 @@ export const InputContaineStyle = styled.div<InputStyleContainerProps>`
   font-weight: 400;
   font-size: 0.8835125rem;
   line-height: 1.3125rem;
+
+  border: 2px solid ${({ theme }) => theme.colors['base-gray-100']};
   border-radius: 7px;
 
   background: ${({ theme }) => theme.colors['base-gray-100']};
+
+  &:focus {
+    border: 2px solid ${({ theme }) => theme.colors['base-theme']};
+    border-radius: 8px;
+  }
 
   ${({ hasError }) =>
     hasError &&

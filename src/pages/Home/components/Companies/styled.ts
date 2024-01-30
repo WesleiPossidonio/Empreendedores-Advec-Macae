@@ -32,6 +32,8 @@ export const CardSwiper = styled(SwiperSlide)`
   position: relative;
   cursor: pointer;
 
+  transition: 0.2s ease-in;
+
   > img {
     width: min(8rem, 6vw);
 
@@ -39,14 +41,14 @@ export const CardSwiper = styled(SwiperSlide)`
     object-fit: cover;
     border: 4px solid ${({ theme }) => theme.colors['base-theme']};
     border-radius: 8px;
+
+    transition: 0.2s ease-in;
   }
 
   &:hover {
-    a {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+    background: ${({ theme }) => theme.colors['base-theme']};
+    img {
+      border: 4px solid ${({ theme }) => theme.colors['base-black']};
     }
   }
 `

@@ -13,8 +13,8 @@ export const Contact = () => {
       <TitleText color="black" size="l">
         Entre em contato Conosco!
       </TitleText>
-      <TextRegular>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
+      <TextRegular weight={600}>
+        Tire sua duvida sobre o nosso projeto
       </TextRegular>
 
       <Form>

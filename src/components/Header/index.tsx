@@ -64,40 +64,35 @@ export const Header = ({ navigatePage }: HeaderProps) => {
       <NavDesktop>
         <NavLink
           stateHeader={stateBackgroundHeader}
-          to="home"
-          smooth={true}
+          href="#home"
           onClick={handleNavigateToHome}
         >
           Home
         </NavLink>
         <NavLink
           stateHeader={stateBackgroundHeader}
-          to="about"
-          smooth={true}
+          href="#about"
           onClick={handleNavigateToHome}
         >
           Sobre Nós
         </NavLink>
         <NavLink
           stateHeader={stateBackgroundHeader}
-          to="principes"
-          smooth={true}
+          href="#principes"
           onClick={handleNavigateToHome}
         >
           Nossos Valores
         </NavLink>
         <NavLink
           stateHeader={stateBackgroundHeader}
-          to="companies"
-          smooth={true}
+          href="#companies"
           onClick={handleNavigateToHome}
         >
           Empresas
         </NavLink>
         <NavLink
           stateHeader={stateBackgroundHeader}
-          to="contact"
-          smooth={true}
+          href="#contact"
           onClick={handleNavigateToHome}
         >
           Contatos
@@ -107,19 +102,17 @@ export const Header = ({ navigatePage }: HeaderProps) => {
       </NavDesktop>
 
       <NavMobile isOpen={isOpen}>
-        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
+        <NavLinkMobile href="#home" onClick={handleStateMenuMobile}>
           Home
         </NavLinkMobile>
-        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
+        <NavLinkMobile href="#about" onClick={handleStateMenuMobile}>
           Nossos Valores
         </NavLinkMobile>
-        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
+        <NavLinkMobile href="#principes" onClick={handleStateMenuMobile}>
           Vagas
         </NavLinkMobile>
-        <NavLink stateHeader={stateBackgroundHeader} to="" smooth={true}>
-          Empresas
-        </NavLink>
-        <NavLinkMobile to="" smooth={true} onClick={handleStateMenuMobile}>
+        <NavLink href="#companies">Empresas</NavLink>
+        <NavLinkMobile href="#Contatos" onClick={handleStateMenuMobile}>
           Contatos
         </NavLinkMobile>
 

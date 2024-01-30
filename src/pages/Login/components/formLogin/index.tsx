@@ -35,7 +35,7 @@ export const FormLogin = () => {
 
   return (
     <Form onSubmit={handleSubmit(handleLoginCompanies)}>
-      <TitleText>Log In Please</TitleText>
+      <TitleText>Login</TitleText>
 
       <Input
         type="text"

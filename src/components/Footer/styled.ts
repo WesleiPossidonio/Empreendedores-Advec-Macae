@@ -30,6 +30,38 @@ export const HeaderFooter = styled.div`
   }
 `
 
-export const ContentLink = styled.div``
+export const ContentLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.8rem;
 
-export const ContentContact = styled.div``
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.2rem;
+
+    p {
+      cursor: pointer;
+      &:hover {
+        color: ${({ theme }) => theme.colors['base-theme']};
+      }
+    }
+  }
+`
+
+export const ContentContact = styled(ContentLink)`
+  p {
+    a {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors['base-gray']};
+
+      &:hover {
+        color: ${({ theme }) => theme.colors['base-theme']};
+      }
+    }
+  }
+`

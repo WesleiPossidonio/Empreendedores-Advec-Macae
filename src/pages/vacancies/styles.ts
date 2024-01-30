@@ -38,8 +38,59 @@ export const HeaderVacancies = styled.header`
   }
 `
 
+export const ContainerBanner = styled.div`
+  width: 100%;
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  > div {
+    margin-top: -2.9rem;
+    margin-left: 8.5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+`
+
+export const ImgBanner = styled.img`
+  width: 100%;
+  height: max-content;
+  margin-top: 4rem;
+  object-fit: cover;
+
+  @media (min-width: 1700px) {
+    height: 37rem;
+    object-fit: cover;
+  }
+
+  @media (max-width: 500px) {
+    height: 12.5rem;
+    object-fit: cover;
+  }
+`
+
+export const ContentImgLogo = styled.div`
+  width: 6.2rem;
+  border: 3px solid ${({ theme }) => theme.colors['base-theme']};
+  border-radius: 6px;
+
+  @media (min-width: 1700px) {
+    width: 8rem;
+    object-fit: cover;
+  }
+`
+
 export const ImageLogo = styled.img`
-  width: 4.5rem;
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.5rem;
 `
 
 export const ButtonLink = styled.a`
@@ -72,15 +123,6 @@ export const ContainerAboutVacancies = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-`
-export const ImgBanner = styled.img`
-  width: 100%;
-  height: max-content;
-  margin-top: 4rem;
-
-  @media (max-width: 500) {
-    height: 11.5rem;
-  }
 `
 
 export const ContentVacancies = styled.div`

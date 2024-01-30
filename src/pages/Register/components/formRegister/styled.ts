@@ -13,8 +13,10 @@ export const Form = styled.form`
 
   background-color: ${({ theme }) => theme.colors['base-gray-100']};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
   > h1 {
     margin-bottom: 2rem;
+    font-size: 2rem;
   }
 
   > button {

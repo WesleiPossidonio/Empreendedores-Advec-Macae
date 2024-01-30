@@ -95,7 +95,7 @@ export const FormRegister = () => {
 
   return (
     <Form onSubmit={handleSubmit(handleRegisterCompanies)}>
-      <TitleText>Log In Please</TitleText>
+      <TitleText>Inscreva-se</TitleText>
 
       <Input
         placeholder="Digite o nome da empresa"

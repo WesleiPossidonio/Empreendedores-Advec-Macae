@@ -9,6 +9,10 @@ export const ContainerAbout = styled.section`
   justify-content: center;
   gap: 5rem;
 
+  button {
+    margin-top: 1rem;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 0;

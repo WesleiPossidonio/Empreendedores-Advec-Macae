@@ -49,37 +49,9 @@ export const ContainerCards = styled.div`
     padding: 0 4rem;
   }
 
-  .contentCardOne {
-    margin-right: 8rem;
-  }
-
-  .contentCardTwo {
-    margin-left: 8rem;
-  }
-
   @media (max-width: 768px) {
     div {
-      width: 100%;
       padding: 0;
-    }
-    .contentCardOne {
-      margin: 0;
-    }
-
-    .contentCardTwo {
-      margin: 0;
-    }
-  }
-
-  @media (max-width: 580px) {
-    div {
-      width: 100%;
-    }
-    .contentCardOne {
-      flex-wrap: wrap;
-    }
-
-    .contentCardTwo {
       flex-wrap: wrap;
     }
   }

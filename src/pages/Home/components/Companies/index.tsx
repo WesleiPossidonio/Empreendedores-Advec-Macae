@@ -2,10 +2,10 @@ import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 
 import { Button, TextRegular, TitleText } from '../../../../components'
+import { useListVocancies } from '../../../../contexts/companyContext'
 import { CardSwiper, ContainerCompanies } from './styled'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { useListVocancies } from '../../../../contexts/companyContext'
 
 export const Companies = () => {
   const { listCompanies } = useListVocancies()
@@ -14,8 +14,8 @@ export const Companies = () => {
       <TitleText color="theme" size="l">
         Empresas Participantes
       </TitleText>
-      <TextRegular>
-        More then 10000 clients who are happy with Us. Are You Next One?
+      <TextRegular weight={600}>
+        Mais de 10 empresas cadastradas, faça parte dessa familía!
       </TextRegular>
 
       <Swiper

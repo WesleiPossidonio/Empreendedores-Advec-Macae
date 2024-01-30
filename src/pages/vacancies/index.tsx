@@ -5,9 +5,12 @@ import { type ListVacanciesProps } from '../../contexts/companyContext'
 import {
   ButtonLink,
   ContainerAboutVacancies,
+  ContainerBanner,
   ContainerVacancies,
+  ContentImgLogo,
   ContentVacancies,
   HeaderVacancies,
+  ImageLogo,
   ImgBanner,
 } from './styles'
 
@@ -45,11 +48,21 @@ export const Vacancies = () => {
               </div>
             </HeaderVacancies>
             <ContainerAboutVacancies>
-              <ImgBanner src={data.vacancies.urlBanner} />
+              <ContainerBanner>
+                <ImgBanner src={data.vacancies.urlBanner} />
+                <div>
+                  <ContentImgLogo>
+                    <ImageLogo src={data.vacancies.urlImage} />
+                  </ContentImgLogo>
+                  <TitleText color="black">
+                    {data.vacancies.name_companies}
+                  </TitleText>
+                </div>
+              </ContainerBanner>
 
               <ContentVacancies>
                 <div>
-                  <TitleText size="l" weight={700}>
+                  <TitleText size="m" weight={700}>
                     Sobre a Empresa
                   </TitleText>
                   <TextRegular>
@@ -58,21 +71,21 @@ export const Vacancies = () => {
                 </div>
 
                 <div>
-                  <TitleText size="l" weight={700}>
+                  <TitleText size="m" weight={700}>
                     Sobre a Vaga
                   </TitleText>
                   <TextRegular>{data.job_description}</TextRegular>
                 </div>
 
                 <div>
-                  <TitleText size="l" weight={700}>
+                  <TitleText size="m" weight={700}>
                     Requisitos da Vaga
                   </TitleText>
                   <TextRegular>{data.vacancy_requirements}</TextRegular>
                 </div>
 
                 <div>
-                  <TitleText size="l" weight={700}>
+                  <TitleText size="m" weight={700}>
                     Benefícios da Vaga
                   </TitleText>
                   <TextRegular>{data.additional_information}</TextRegular>

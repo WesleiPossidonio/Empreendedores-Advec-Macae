@@ -7,7 +7,7 @@ interface ButtonProps {
 
 export const ContainerButton = styled.button<ButtonProps>`
   width: ${({ search }) => (search === true ? '12.5rem' : '7.5625rem')};
-  height: ${({ search }) => (search === true ? '3.3rem' : '2.5rem')};
+  height: ${({ search }) => (search === true ? '3.3rem' : '2.9rem')};
 
   border: 1px solid ${({ theme }) => theme.colors['base-theme']};
   border-radius: 5px;

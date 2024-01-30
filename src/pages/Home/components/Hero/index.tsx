@@ -13,7 +13,7 @@ export const Hero = () => {
           Encontre Sua Próxima Jornada Profissional Aqui!
         </TextRegular>
 
-        <FormSearch dashboard={false} />
+        <FormSearch selectedPage="homePage" />
       </ContentTitle>
     </ContainerHero>
   )
