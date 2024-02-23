@@ -5,6 +5,7 @@ import {
   DashBoard,
   Home,
   Login,
+  PageCompaniesSelected,
   PageVacancies,
   Register,
   Vacancies,
@@ -17,6 +18,7 @@ export const Router = () => {
       <Route path="/" element={<Home />} />
       <Route path="/vagas" element={<PageVacancies />} />
       <Route path="/empresas" element={<AllCompanies />} />
+      <Route path="/empresa-selecionada" element={<PageCompaniesSelected />} />
       <Route path="/inscricão" element={<Vacancies />} />
       <Route path="/login" element={<Login />} />
       <Route path="/inscricao" element={<Register />} />

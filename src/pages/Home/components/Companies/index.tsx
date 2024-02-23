@@ -3,19 +3,29 @@ import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 
 import { Button, TextRegular, TitleText } from '../../../../components'
-import { useListVocancies } from '../../../../contexts/companyContext'
+import {
+  type DataCompany,
+  useListVocancies,
+} from '../../../../contexts/companyContext'
 import { CardSwiper, ContainerCompanies } from './styled'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
 export const Companies = () => {
   const { listCompanies, setPageStatusJobSearch } = useListVocancies()
+  console.log(listCompanies)
 
   const navigate = useNavigate()
 
-  const handleNavigateToCompanies = () => {
+  const handleNavigateAllCompanies = () => {
     navigate('/empresas')
     setPageStatusJobSearch('PageCompanies')
+  }
+
+  const handleNavigateCompanies = (data: DataCompany) => {
+    navigate('/empresa-selecionada', {
+      state: data,
+    })
   }
   return (
     <ContainerCompanies id="companies">
@@ -56,14 +66,19 @@ export const Companies = () => {
       >
         {listCompanies.map((list) => {
           return (
-            <CardSwiper key={list.id}>
-              <img src={list.urlImage} alt="" />
+            <CardSwiper
+              key={list.id}
+              onClick={() => {
+                handleNavigateCompanies(list)
+              }}
+            >
+              <img src={list.path_img} alt="" />
               <TitleText color="black">{list.name_companies}</TitleText>
             </CardSwiper>
           )
         })}
       </Swiper>
-      <Button search bg="theme" onClick={handleNavigateToCompanies}>
+      <Button search bg="theme" onClick={handleNavigateAllCompanies}>
         Buscar Empresas
       </Button>
     </ContainerCompanies>

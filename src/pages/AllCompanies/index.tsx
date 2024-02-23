@@ -81,7 +81,7 @@ export const AllCompanies = () => {
               <TitleText weight={400}>{searchVacancy}</TitleText>
               <TitleText color="black">
                 {filteredAllListCompanies.length < 1
-                  ? 'Vaga Não Encontrada'
+                  ? 'Empresa Não Encontrada'
                   : `${filteredAllListCompanies.length} Vagas Encontradas`}
               </TitleText>
             </ContentVacancies>

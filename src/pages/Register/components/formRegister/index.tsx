@@ -34,6 +34,7 @@ const RegisterCompaniesFormSchema = zod.object({
     .min(1, 'Por gentileza, digite a descrição da sua empresa'),
   path_img: zod.any(),
   path_banner: zod.any(),
+  path_companies_img: zod.any(),
   password: zod
     .string()
     .min(6, 'Por gentileza, digite sua senha corretamente')
@@ -76,16 +77,26 @@ export const FormRegister = () => {
       path_banner,
       path_img,
       branch_of_activity,
+      path_companies_img,
     } = data
+
+    const first_img = path_companies_img[0]
+    const second_img = path_companies_img[1]
+    const third_img = path_companies_img[2]
+    const fourth_img = path_companies_img[3]
 
     const newList = {
       password,
-      path_banner: path_banner[0],
-      path_img: path_img[0],
+      path_banner,
+      path_img,
       company_description,
       email,
       name_companies,
       branch_of_activity,
+      first_img,
+      second_img,
+      third_img,
+      fourth_img,
     }
 
     void handleRegiterCompanies(newList)
@@ -153,6 +164,15 @@ export const FormRegister = () => {
             onClick={handleFileInputChangeBanner}
           />
         </ContentInput>
+        <Label htmlFor="files" fileState={fileInputFilledBanner}>
+          Imagens da Empresa
+        </Label>
+        <InputFile
+          type="file"
+          id="files"
+          {...register('path_companies_img')}
+          multiple
+        />
       </ContainerInputImage>
       <Button bg="theme">Cadastrar</Button>
     </Form>

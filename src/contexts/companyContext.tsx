@@ -12,14 +12,23 @@ import { toast } from 'react-toastify'
 
 import api from '../services/api'
 
-interface CompaniesProps {
+export interface CommentsProps {
+  id: number
+  comments_id: number
+  name_user: string
+  title_comments: string
+  text_comments: string
+  number_of_stars: string
+}
+
+export interface CompaniesProps {
   id: number
   cnpj: string
   name_companies: string
   email: string
   company_description: string
-  urlImage: string
-  urlBanner: string
+  path_img: string
+  path_banner: string
 }
 export interface ListVacanciesProps {
   nameSearch: string
@@ -32,6 +41,7 @@ export interface ListVacanciesProps {
   created_at: string
   vacancies: CompaniesProps
 }
+
 export interface RegisterCompaniesProps {
   name_companies: string
   email: string
@@ -40,6 +50,10 @@ export interface RegisterCompaniesProps {
   path_img: string
   password: string
   branch_of_activity: string
+  first_img: string
+  second_img: string
+  third_img: string
+  fourth_img: string
 }
 interface GetListVacancies {
   vacancy: string
@@ -54,8 +68,8 @@ export interface DataCompany {
   name_companies: string
   email: string
   company_description: string
-  urlImage: string
-  urlBanner: string
+  path_img: string
+  path_banner: string
   token: string
   branch_of_activity: string
 }
@@ -87,6 +101,7 @@ interface ListCompanyType {
   listVacancy: ListVacancyProps[]
   listOfFilteredVacancies: ListVacancyProps[]
   pageStatusJobSearch: string
+  allComments: CommentsProps[]
 }
 
 interface ListCompanyProps {
@@ -107,33 +122,49 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   const [listOfFilteredVacancies, setListOfFilteredVacancies] = useState<
     ListVacancyProps[]
   >([])
+  const [allComments, setAllComments] = useState<CommentsProps[]>([])
   const [searchVacancy, setSearchVacancy] = useState('')
   const [pageStatusJobSearch, setPageStatusJobSearch] = useState('')
   const navigate = useNavigate()
 
-  const getListConpanies = useCallback(async () => {
-    try {
-      const response = await api.get('listCompanies')
-      const newListCompanies: DataCompany[] = response.data
-      setListCompanies(newListCompanies)
-    } catch (error) {}
-  }, [])
-
-  const GetListVacancy = async () => {
-    try {
-      const response = await api.get('listVacancies')
-
-      const listVacancies: ListVacancyProps[] = response.data
-      setListVacancy(listVacancies)
-    } catch (error) {
-      console.error('Erro ao obter a lista de vagas:', error)
-    }
-  }
-
   useEffect(() => {
-    void GetListVacancy()
-    void getListConpanies()
-  }, [getListConpanies])
+    const getListVacancy = async () => {
+      try {
+        const response = await api.get('listVacancies')
+        const listVacancies: ListVacancyProps[] = response.data
+        setListVacancy(listVacancies)
+      } catch (error) {
+        console.error('Erro ao obter a lista de vagas:', error)
+        // Adicione lógica de tratamento de erro, se necessário
+      }
+    }
+
+    const getListCompanies = async () => {
+      try {
+        const response = await api.get('listCompanies')
+        const newListCompanies: DataCompany[] = response.data
+        setListCompanies(newListCompanies)
+      } catch (error) {
+        console.error('Erro ao obter a lista de empresas:', error)
+        // Adicione lógica de tratamento de erro, se necessário
+      }
+    }
+
+    const getListComments = async () => {
+      try {
+        const response = await api.get('listComments')
+        const newListCompanies: CommentsProps[] = response.data
+        setAllComments(newListCompanies)
+      } catch (error) {
+        console.error('Erro ao obter a lista de comentários:', error)
+        // Adicione lógica de tratamento de erro, se necessário
+      }
+    }
+
+    void getListCompanies()
+    void getListVacancy()
+    void getListComments()
+  }, [])
 
   const handleGetListVacancies = useCallback(
     async (data: GetListVacancies) => {
@@ -179,6 +210,10 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         path_img,
         password,
         branch_of_activity,
+        first_img,
+        second_img,
+        third_img,
+        fourth_img,
       } = data
 
       try {
@@ -189,6 +224,10 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         formData.append('password', password)
         formData.append('path_banner', path_banner)
         formData.append('path_img', path_img)
+        formData.append('first_img', first_img)
+        formData.append('second_img', second_img)
+        formData.append('third_img', third_img)
+        formData.append('fourth_img', fourth_img)
         formData.append('branch_of_activity', branch_of_activity)
 
         await toast.promise(
@@ -294,6 +333,7 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         pageStatusJobSearch,
         listOfFilteredVacancies,
         filteredAllListCompanies,
+        allComments,
       }}
     >
       {children}
