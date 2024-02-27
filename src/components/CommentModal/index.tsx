@@ -81,6 +81,7 @@ export const CommentModal = ({ idCompany }: CommentModalProps) => {
               render={({ field }) => (
                 <Rating
                   onChange={(event, newValue) => {
+                    console.log(event)
                     field.onChange(newValue)
                   }}
                   value={field.value}

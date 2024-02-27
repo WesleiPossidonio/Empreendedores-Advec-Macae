@@ -56,6 +56,7 @@ export const PageCompaniesSelected = () => {
   const currentVacancies = filteredListVacancy.slice(startIndex, endIndex)
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    console.log(event)
     setCurrentPage(value)
   }
 
