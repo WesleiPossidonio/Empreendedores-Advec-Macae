@@ -1,7 +1,7 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: 'https://api-realize.vercel.app/',
 })
 
 api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {

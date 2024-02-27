@@ -16,7 +16,7 @@ export const Principes = () => {
         <TitleText size="l" color="theme">
           Nossa Visão
         </TitleText>
-        <TextRegular color="gray" size="m" weight={600}>
+        <TextRegular color="gray" size="s" weight={600}>
           Unir corações, atender necessidades e transformar vidas é nossa visão.
           Buscamos construir uma comunidade onde a solidariedade floresça,
           proporcionando a cada membro um futuro próspero.

@@ -21,6 +21,7 @@ export const Form = styled.form`
 
   > button {
     margin-top: 1.5rem;
+    padding: 0.6rem;
   }
 
   > p {

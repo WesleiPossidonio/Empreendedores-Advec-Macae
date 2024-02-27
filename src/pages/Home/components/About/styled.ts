@@ -13,7 +13,11 @@ export const ContainerAbout = styled.section`
     margin-top: 1rem;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 1441px) {
+    gap: 15rem;
+  }
+
+  @media (max-width: 870px) {
     flex-direction: column;
     gap: 0;
   }
@@ -47,15 +51,11 @@ export const ContentImg = styled.div`
   padding: 1rem;
 
   img {
-    width: 16rem;
+    width: min(16rem, 20vw);
     border-radius: 6px;
 
     @media (max-width: 900px) {
-      width: 11.5rem;
-    }
-
-    @media (max-width: 500px) {
-      width: 9.5rem;
+      width: min(16rem, 40vw);
     }
   }
 

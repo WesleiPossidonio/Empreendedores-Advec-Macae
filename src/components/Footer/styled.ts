@@ -10,6 +10,7 @@ export const ContainerFooter = styled.footer`
   flex-wrap: wrap;
 
   padding: 2rem;
+  margin-top: 10rem;
 
   background-color: ${({ theme }) => theme.colors['base-gray-100']};
 
@@ -58,10 +59,30 @@ export const ContentContact = styled(ContentLink)`
     a {
       text-decoration: none;
       color: ${({ theme }) => theme.colors['base-gray']};
+      font-size: 0.879rem;
 
       &:hover {
         color: ${({ theme }) => theme.colors['base-theme']};
       }
     }
+  }
+`
+
+export const NavLink = styled.a`
+  font-size: 0.879rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  text-decoration: none;
+
+  color: ${({ theme }) => theme.colors['base-gray']};
+
+  cursor: pointer;
+
+  transition: 0.2s ease-in;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors['base-theme']};
   }
 `

@@ -55,7 +55,7 @@ export const Header = ({ navigatePage }: HeaderProps) => {
 
   return (
     <ContainerHeader stateHeader={stateBackgroundHeader}>
-      <img src={Logo} alt="" />
+      <img src={Logo} alt="" onClick={handleNavigateToHome} />
       {isOpen ? (
         <X size={35} weight="fill" onClick={handleStateMenuMobile} />
       ) : (

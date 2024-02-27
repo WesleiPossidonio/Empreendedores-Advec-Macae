@@ -4,4 +4,7 @@ export * from './FormSearch'
 export * from './Input'
 export * from './Footer'
 export * from './typograph'
-export * from './TextArea'
+
+export * from './CommentModal'
+export * from './DisqusComments'
+export * from './SelectBranchFilter'

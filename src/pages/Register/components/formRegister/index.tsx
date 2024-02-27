@@ -174,7 +174,9 @@ export const FormRegister = () => {
           multiple
         />
       </ContainerInputImage>
-      <Button bg="theme">Cadastrar</Button>
+      <Button bg="theme" search>
+        Cadastrar
+      </Button>
     </Form>
   )
 }

@@ -4,7 +4,6 @@ import ImageBanner from '../../assets/BannerLogin.jpg'
 
 export const ContainerRegister = styled.section`
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +12,7 @@ export const ContainerRegister = styled.section`
 
 export const ContainerHeader = styled.div`
   width: 100%;
-  height: 500px;
+  height: 25rem;
 
   display: flex;
   flex-direction: column;
@@ -30,7 +29,7 @@ export const ContainerHeader = styled.div`
 
 export const ContainerForm = styled.div`
   width: 100%;
-  height: 60rem;
+  height: 70rem;
 
   display: flex;
   flex-direction: column;

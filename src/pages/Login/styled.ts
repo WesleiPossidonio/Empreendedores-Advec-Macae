@@ -13,7 +13,7 @@ export const ContainerLogin = styled.section`
 
 export const ContainerHeader = styled.div`
   width: 100%;
-  height: 500px;
+  height: 25rem;
 
   display: flex;
   flex-direction: column;

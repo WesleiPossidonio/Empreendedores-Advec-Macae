@@ -11,8 +11,8 @@ export const PageVacancies = () => {
 
   const navigate = useNavigate()
 
-  const handleSelectedVacancies = (id: number) => {
-    const listSelected = listVacancy.filter((list) => list.vacancies_id === id)
+  const handleSelectedVacancies = (id: string) => {
+    const listSelected = listVacancy.filter((list) => list.id === id)
 
     navigate('/inscricão', {
       state: listSelected,

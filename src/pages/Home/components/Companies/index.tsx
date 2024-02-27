@@ -13,7 +13,6 @@ import 'swiper/css/pagination'
 
 export const Companies = () => {
   const { listCompanies, setPageStatusJobSearch } = useListVocancies()
-  console.log(listCompanies)
 
   const navigate = useNavigate()
 

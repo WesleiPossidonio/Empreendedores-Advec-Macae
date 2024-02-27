@@ -44,7 +44,8 @@ export const ContentData = styled.section`
 
 export const ContentDataVacancies = styled.div`
   width: 100%;
-  height: 10rem;
+  height: 12rem;
+  min-height: max-content;
 
   display: flex;
   justify-content: space-between;
@@ -168,3 +169,11 @@ export const ContentCard = styled.div`
 `
 
 export const FooterCard = styled.div``
+
+export const ContainerFormSelect = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+`

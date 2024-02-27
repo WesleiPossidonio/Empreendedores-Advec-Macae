@@ -1,32 +1,25 @@
 import { useNavigate } from 'react-router-dom'
 
-import ImageError from '../../assets/ImageErrorVacancy.svg'
-import { FormSearch, TextRegular, TitleText } from '../../components'
+import { TextRegular, TitleText } from '../../components'
 import { useListVocancies } from '../../contexts/companyContext'
-import {
-  CardVacancies,
-  ContainerListVacancies,
-  ContainerVacancies,
-  ContentData,
-  ContentDataVacancies,
-  ContentVacancies,
-  FooterCard,
-  HeaderCard,
-  HeaderVacancies,
-} from './styles'
+import { AllListCompany } from './AllListcompany'
+import { SearchAllKistCompanies } from './SearchAlllListCompany'
+import { ContainerVacancies, HeaderVacancies } from './styles'
 
 export const AllCompanies = () => {
-  const {
-    filteredAllListCompanies,
-    pageStatusJobSearch,
-    listCompanies,
-    searchVacancy,
-  } = useListVocancies()
+  const { pageStatusJobSearch, listCompanies } = useListVocancies()
 
   const navigate = useNavigate()
 
   const handleToGoBackHome = () => {
     navigate('/')
+  }
+
+  const handleNavigateToCompany = (data: number) => {
+    const listSelected = listCompanies.find((list) => list.id === data)
+    navigate('/empresa-selecionada', {
+      state: listSelected,
+    })
   }
   return (
     <ContainerVacancies>
@@ -38,82 +31,13 @@ export const AllCompanies = () => {
       </HeaderVacancies>
 
       {pageStatusJobSearch === 'PageCompanies' && (
-        <ContentData>
-          <ContentDataVacancies>
-            <ContentVacancies>
-              <TitleText>Todas Empresas</TitleText>
-            </ContentVacancies>
-            <div>
-              <FormSearch selectedPage="searchCompanies" formDashboard />
-            </div>
-          </ContentDataVacancies>
-          {listCompanies.length < 1 ? (
-            <img src={ImageError} alt="" />
-          ) : (
-            <ContainerListVacancies>
-              {listCompanies.map((list) => {
-                return (
-                  <CardVacancies key={list.id}>
-                    <HeaderCard>
-                      <img src={list.urlImage} alt="" />
-                      <TextRegular size="m" color="black" weight={700}>
-                        {list.name_companies}
-                      </TextRegular>
-                    </HeaderCard>
-
-                    <FooterCard>
-                      <TextRegular weight={500}>
-                        {list.branch_of_activity}
-                      </TextRegular>
-                    </FooterCard>
-                  </CardVacancies>
-                )
-              })}
-            </ContainerListVacancies>
-          )}
-        </ContentData>
+        <AllListCompany handleNavigateToCompany={handleNavigateToCompany} />
       )}
 
       {pageStatusJobSearch === 'searchCompanies' && (
-        <ContentData>
-          <ContentDataVacancies>
-            <ContentVacancies>
-              <TitleText weight={400}>{searchVacancy}</TitleText>
-              <TitleText color="black">
-                {filteredAllListCompanies.length < 1
-                  ? 'Empresa Não Encontrada'
-                  : `${filteredAllListCompanies.length} Vagas Encontradas`}
-              </TitleText>
-            </ContentVacancies>
-            <div>
-              <FormSearch selectedPage="searchCompanies" formDashboard />
-            </div>
-          </ContentDataVacancies>
-          {filteredAllListCompanies.length < 1 ? (
-            <img src={ImageError} alt="" />
-          ) : (
-            <ContainerListVacancies>
-              {filteredAllListCompanies.map((list) => {
-                return (
-                  <CardVacancies key={list.id}>
-                    <HeaderCard>
-                      <img src={list.urlImage} alt="" />
-                      <TextRegular size="m" color="black" weight={700}>
-                        {list.name_companies}
-                      </TextRegular>
-                    </HeaderCard>
-
-                    <FooterCard>
-                      <TextRegular weight={500}>
-                        {list.branch_of_activity}
-                      </TextRegular>
-                    </FooterCard>
-                  </CardVacancies>
-                )
-              })}
-            </ContainerListVacancies>
-          )}
-        </ContentData>
+        <SearchAllKistCompanies
+          handleNavigateToCompany={handleNavigateToCompany}
+        />
       )}
     </ContainerVacancies>
   )

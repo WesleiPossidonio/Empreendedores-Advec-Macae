@@ -13,12 +13,30 @@ import { toast } from 'react-toastify'
 import api from '../services/api'
 
 export interface CommentsProps {
-  id: number
+  id?: number
   comments_id: number
   name_user: string
-  title_comments: string
   text_comments: string
-  number_of_stars: string
+  number_of_stars: number
+}
+
+interface PathImagesCompaniesProps {
+  imageOne: string
+  imageTwo: string
+  imageThree: string
+  imageFour: string
+}
+
+export interface DataCompany {
+  id: number
+  name_companies: string
+  email: string
+  company_description: string
+  path_img: string
+  path_banner: string
+  token: string
+  branch_of_activity: string
+  path_companies_img: PathImagesCompaniesProps
 }
 
 export interface CompaniesProps {
@@ -29,17 +47,19 @@ export interface CompaniesProps {
   company_description: string
   path_img: string
   path_banner: string
+  path_companies_img: PathImagesCompaniesProps
 }
 export interface ListVacanciesProps {
   nameSearch: string
-  id: number
+  id: string
+  vacancies_id: number
   name_vacancies: string
   number_of_vacancies: string
   job_description: string
   vacancy_requirements: string
   additional_information: string
-  created_at: string
-  vacancies: CompaniesProps
+  createdAt: string
+  vacancies: DataCompany
 }
 
 export interface RegisterCompaniesProps {
@@ -63,17 +83,9 @@ export interface DataLoginCompanies {
   email: string
   password: string
 }
-export interface DataCompany {
-  id: number
-  name_companies: string
-  email: string
-  company_description: string
-  path_img: string
-  path_banner: string
-  token: string
-  branch_of_activity: string
-}
+
 export interface ListVacancyProps {
+  id: string
   vacancies_id: number
   name_vacancies: string
   number_of_vacancies: string
@@ -88,20 +100,32 @@ export interface VacanciesProps {
   job_description: string
   vacancy_requirements: string
 }
+
+interface SendEmailProps {
+  name: string
+  subject: string
+  email: string
+  phone: string
+}
+
 interface ListCompanyType {
   handleGetListVacancies: (vacancy: GetListVacancies) => Promise<void>
   handleRegiterCompanies: (data: RegisterCompaniesProps) => Promise<void>
   HandleLoginCompanies: (data: DataLoginCompanies) => Promise<void>
   createNewVacancies: (data: VacanciesProps) => Promise<void>
   setPageStatusJobSearch: (data: string) => void
+  setCompanyBranchFilter: (data: string) => void
+  createNewComments: (data: CommentsProps) => void
+  handleSendEmail: (data: SendEmailProps) => void
   listCompanies: DataCompany[]
   filteredAllListCompanies: DataCompany[]
   searchVacancy: string
+  companyBranchFilter: string
   dataCompany: DataCompany
-  listVacancy: ListVacancyProps[]
-  listOfFilteredVacancies: ListVacancyProps[]
+  listVacancy: ListVacanciesProps[]
+  listOfFilteredVacancies: ListVacanciesProps[]
   pageStatusJobSearch: string
-  allComments: CommentsProps[]
+  allListComments: CommentsProps[]
 }
 
 interface ListCompanyProps {
@@ -118,24 +142,25 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   const [filteredAllListCompanies, setFilteredAllListCompanies] = useState<
     DataCompany[]
   >([])
-  const [listVacancy, setListVacancy] = useState<ListVacancyProps[]>([])
+  const [listVacancy, setListVacancy] = useState<ListVacanciesProps[]>([])
   const [listOfFilteredVacancies, setListOfFilteredVacancies] = useState<
-    ListVacancyProps[]
+    ListVacanciesProps[]
   >([])
-  const [allComments, setAllComments] = useState<CommentsProps[]>([])
+  const [allListComments, setallListComments] = useState<CommentsProps[]>([])
   const [searchVacancy, setSearchVacancy] = useState('')
-  const [pageStatusJobSearch, setPageStatusJobSearch] = useState('')
+  const [pageStatusJobSearch, setPageStatusJobSearch] =
+    useState('PageCompanies')
+  const [companyBranchFilter, setCompanyBranchFilter] = useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
     const getListVacancy = async () => {
       try {
         const response = await api.get('listVacancies')
-        const listVacancies: ListVacancyProps[] = response.data
+        const listVacancies: ListVacanciesProps[] = response.data
         setListVacancy(listVacancies)
       } catch (error) {
         console.error('Erro ao obter a lista de vagas:', error)
-        // Adicione lógica de tratamento de erro, se necessário
       }
     }
 
@@ -146,7 +171,6 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         setListCompanies(newListCompanies)
       } catch (error) {
         console.error('Erro ao obter a lista de empresas:', error)
-        // Adicione lógica de tratamento de erro, se necessário
       }
     }
 
@@ -154,10 +178,9 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
       try {
         const response = await api.get('listComments')
         const newListCompanies: CommentsProps[] = response.data
-        setAllComments(newListCompanies)
+        setallListComments(newListCompanies)
       } catch (error) {
         console.error('Erro ao obter a lista de comentários:', error)
-        // Adicione lógica de tratamento de erro, se necessário
       }
     }
 
@@ -173,7 +196,7 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
       setPageStatusJobSearch(selectedPage)
 
       if (selectedPage === 'pageJob') {
-        const listVacanciesSelected: ListVacancyProps[] = listVacancy.filter(
+        const listVacanciesSelected: ListVacanciesProps[] = listVacancy.filter(
           (list) =>
             list.name_vacancies.toLowerCase().startsWith(vacancy.toLowerCase()),
         )
@@ -272,16 +295,82 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
       }
 
       try {
-        await toast.promise(api.post('vacancies', newVacacies), {
-          pending: 'Verificando seus dados',
-          success: 'Vaga criada com sucesso!',
-          error: 'Verifique seus dado e faça novamente! 🤯',
-        })
+        const newListVacancies = await toast.promise(
+          api.post('vacancies', newVacacies),
+          {
+            pending: 'Verificando seus dados',
+            success: 'Vaga criada com sucesso!',
+            error: 'Verifique seus dado e faça novamente! 🤯',
+          },
+        )
+        const { data } = newListVacancies
+
+        setListVacancy([...listVacancy, data])
       } catch (error) {
         console.log(error)
       }
     },
-    [dataCompany],
+    [dataCompany.id, listVacancy],
+  )
+
+  const createNewComments = useCallback(
+    async (data: CommentsProps) => {
+      const { comments_id, name_user, number_of_stars, text_comments } = data
+
+      const newComments = {
+        name_user,
+        number_of_stars,
+        text_comments,
+        comments_id,
+      }
+
+      try {
+        const newListComments = await toast.promise(
+          api.post('addComments', newComments),
+          {
+            pending: 'Verificando seus dados',
+            success: 'Vaga criada com sucesso!',
+            error: 'Verifique seus dado e faça novamente! 🤯',
+          },
+        )
+
+        const { data } = newListComments
+        setallListComments([...allListComments, data])
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    [allListComments],
+  )
+
+  const handleSendEmail = useCallback(
+    async (data: SendEmailProps) => {
+      const { email, name, phone, subject } = data
+
+      const dataSendEmail = {
+        email,
+        name,
+        phone,
+        subject,
+      }
+
+      try {
+        const newListComments = await toast.promise(
+          api.post('sendMail', dataSendEmail),
+          {
+            pending: 'Verificando seus dados',
+            success: 'Vaga criada com sucesso!',
+            error: 'Verifique seus dado e faça novamente! 🤯',
+          },
+        )
+
+        const { data } = newListComments
+        setallListComments([...allListComments, data])
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    [allListComments],
   )
 
   const HandleLoginCompanies = useCallback(
@@ -326,6 +415,9 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         HandleLoginCompanies,
         createNewVacancies,
         setPageStatusJobSearch,
+        setCompanyBranchFilter,
+        createNewComments,
+        handleSendEmail,
         listCompanies,
         searchVacancy,
         dataCompany,
@@ -333,7 +425,8 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         pageStatusJobSearch,
         listOfFilteredVacancies,
         filteredAllListCompanies,
-        allComments,
+        allListComments,
+        companyBranchFilter,
       }}
     >
       {children}

@@ -30,7 +30,7 @@ export const ContainerHeader = styled.header<HeaderProps>`
     width: 15rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 970px) {
     > svg {
       display: block;
       color: ${({ theme }) => theme.colors['base-theme']};
@@ -45,7 +45,7 @@ export const NavDesktop = styled.nav`
   align-items: center;
   gap: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 970px) {
     display: none;
   }
 `
@@ -74,25 +74,6 @@ export const NavMobile = styled.nav<NavMobileProps>`
 
   background-color: ${({ theme }) => theme.colors['base-white']};
 `
-
-// export const NavLink = styled(Link)<HeaderProps>`
-//   font-size: ${({ theme }) => theme.FontSizes['text-regular-m']};
-//   font-style: normal;
-//   font-weight: 600;
-//   line-height: normal;
-
-//   color: ${({ theme, stateHeader }) =>
-//     stateHeader === true
-//       ? theme.colors['base-gray']
-//       : theme.colors['base-white']};
-//   cursor: pointer;
-
-//   transition: 0.2s ease-in;
-
-//   &:hover {
-//     color: ${({ theme }) => theme.colors['base-theme']};
-//   }
-// `
 
 export const NavLink = styled.a<HeaderProps>`
   font-size: ${({ theme }) => theme.FontSizes['text-regular-m']};

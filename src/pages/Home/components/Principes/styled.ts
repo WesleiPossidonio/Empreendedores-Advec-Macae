@@ -26,6 +26,10 @@ export const ContainerTitle = styled.div`
 
   > p {
     max-width: 70%;
+
+    @media (max-width: 760px) {
+      max-width: 100%;
+    }
   }
 `
 

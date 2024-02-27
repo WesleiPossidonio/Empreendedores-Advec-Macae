@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 
+import { DisqusComments } from '../../components'
 import { TextRegular, TitleText } from '../../components/typograph'
 import { type ListVacanciesProps } from '../../contexts/companyContext'
 import {
@@ -49,10 +50,10 @@ export const Vacancies = () => {
             </HeaderVacancies>
             <ContainerAboutVacancies>
               <ContainerBanner>
-                <ImgBanner src={data.vacancies.urlBanner} />
+                <ImgBanner src={data.vacancies.path_banner} />
                 <div>
                   <ContentImgLogo>
-                    <ImageLogo src={data.vacancies.urlImage} />
+                    <ImageLogo src={data.vacancies.path_img} />
                   </ContentImgLogo>
                   <TitleText color="black">
                     {data.vacancies.name_companies}
@@ -96,6 +97,7 @@ export const Vacancies = () => {
                 </ButtonLink>
               </ContentVacancies>
             </ContainerAboutVacancies>
+            <DisqusComments identifier={data.id} title={data.name_vacancies} />
           </ContainerVacancies>
         )
       })}

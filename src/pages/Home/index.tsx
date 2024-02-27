@@ -5,10 +5,10 @@ import { Footer, Header } from '../../components'
 import {
   Principes,
   Companies,
-  Contact,
   Explanation,
   Hero,
   About,
+  FormContact,
 } from './components'
 import { ContainerHome } from './styled'
 
@@ -20,15 +20,17 @@ export const Home = () => {
   }, [])
 
   return (
-    <ContainerHome>
+    <>
       <Header navigatePage={false} />
       <Hero />
-      <About />
-      <Principes />
-      <Explanation />
-      <Companies />
-      <Contact />
+      <ContainerHome>
+        <About />
+        <Principes />
+        <Explanation />
+        <Companies />
+        <FormContact />
+      </ContainerHome>
       <Footer />
-    </ContainerHome>
+    </>
   )
 }

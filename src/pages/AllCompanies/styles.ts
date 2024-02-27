@@ -35,11 +35,11 @@ export const ContentData = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+`
 
-  > img {
-    width: 18rem;
-    margin-top: 6rem;
-  }
+export const Img = styled.img`
+  width: 18rem;
+  margin-top: 6rem;
 `
 
 export const ContentDataVacancies = styled.div`
@@ -108,7 +108,7 @@ export const ContainerListVacancies = styled.div`
   padding: 1.5rem;
 `
 
-export const CardVacancies = styled.div`
+export const CardAllVacancies = styled.div`
   width: 100%;
   height: 15rem;
 
@@ -159,6 +159,7 @@ export const ContentCard = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 0.8rem;
+
   > div {
     width: 100%;
     display: flex;
@@ -169,4 +170,12 @@ export const ContentCard = styled.div`
 
 export const FooterCard = styled.div`
   align-self: flex-end;
+`
+
+export const ContainerFormSelect = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
 `

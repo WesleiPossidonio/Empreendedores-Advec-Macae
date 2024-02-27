@@ -6,6 +6,7 @@ import * as zod from 'zod'
 
 import { Button, Input } from '../../../../components'
 import { useListVocancies } from '../../../../contexts/companyContext'
+// import { TextArea } from '../../../Home/components/Contact/styled'
 import { TextArea } from '../../../Home/components/Contact/styled'
 import { Form } from './styled'
 
