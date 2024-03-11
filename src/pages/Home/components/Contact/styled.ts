@@ -14,6 +14,11 @@ export const ContainerContact = styled.section`
   border-radius: 10px;
 
   background-color: ${({ theme }) => theme.colors['base-theme']};
+
+  > h1 {
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
 `
 export const Form = styled.form`
   width: 80%;

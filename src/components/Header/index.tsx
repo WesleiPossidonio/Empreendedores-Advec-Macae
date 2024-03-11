@@ -111,7 +111,9 @@ export const Header = ({ navigatePage }: HeaderProps) => {
         <NavLinkMobile href="#principes" onClick={handleStateMenuMobile}>
           Vagas
         </NavLinkMobile>
-        <NavLink href="#companies">Empresas</NavLink>
+        <NavLinkMobile href="#companies" onClick={handleStateMenuMobile}>
+          Empresas
+        </NavLinkMobile>
         <NavLinkMobile href="#Contatos" onClick={handleStateMenuMobile}>
           Contatos
         </NavLinkMobile>

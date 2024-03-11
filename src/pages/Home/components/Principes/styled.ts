@@ -36,24 +36,14 @@ export const ContainerTitle = styled.div`
 export const ContainerCards = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3rem;
 
-  > div {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-
-    text-align: center;
-
-    padding: 0 4rem;
-  }
+  text-align: center;
 
   @media (max-width: 768px) {
+    flex-direction: column;
     div {
       padding: 0;
       flex-wrap: wrap;

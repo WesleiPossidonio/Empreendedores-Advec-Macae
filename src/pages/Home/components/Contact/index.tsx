@@ -1,4 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import AOS from 'aos'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
@@ -28,6 +30,10 @@ export const FormContact = () => {
   } = useForm<createSendEmailFormInputs>({
     resolver: zodResolver(sendEmailFormSchema),
   })
+
+  useEffect(() => {
+    AOS.init()
+  }, [])
 
   const { handleSendEmail } = useListVocancies()
 

@@ -25,7 +25,7 @@ export const ContentTitle = styled.div`
 `
 
 export const ContainerExpanation = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -33,6 +33,7 @@ export const ContainerExpanation = styled.div`
   gap: 3rem;
 
   @media (max-width: 720px) {
+    width: 95%;
     gap: 5rem;
   }
 `
@@ -75,8 +76,6 @@ export const ContainerText = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 0.875rem;
-
-  max-width: 27rem;
 
   > div {
     display: flex;

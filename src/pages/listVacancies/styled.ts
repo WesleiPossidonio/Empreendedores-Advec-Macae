@@ -71,6 +71,7 @@ export const ContentDataVacancies = styled.div`
     align-items: flex-start;
     justify-content: center;
     gap: 1rem;
+    margin-top: 1.5rem;
 
     padding: 1.5rem;
 
@@ -94,6 +95,11 @@ export const ContentVacancies = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 0.5rem;
+`
+
+export const ImgError = styled.img`
+  width: min(20rem, 50vw);
+  margin: 0 auto;
 `
 
 export const ContainerListVacancies = styled.div`

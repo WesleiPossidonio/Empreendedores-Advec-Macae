@@ -35,10 +35,7 @@ const RegisterCompaniesFormSchema = zod.object({
   path_img: zod.any(),
   path_banner: zod.any(),
   path_companies_img: zod.any(),
-  password: zod
-    .string()
-    .min(6, 'Por gentileza, digite sua senha corretamente')
-    .max(6, 'Por gentileza, digite sua senha corretamente'),
+  password: zod.string().min(6, 'Por gentileza, digite sua senha corretamente'),
 })
 
 type createLoginCompaniesFormInputs = zod.infer<

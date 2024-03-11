@@ -1,3 +1,5 @@
+import AOS from 'aos'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import ImageOne from '../../../../assets/ImgPassoOne.svg'
@@ -13,12 +15,19 @@ import {
   Image,
 } from './styled'
 
+import 'aos/dist/aos.css'
+
 export const Explanation = () => {
   const navigate = useNavigate()
 
   const handreNagigateToVacancies = () => {
     navigate('/vagas')
   }
+
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
   return (
     <ContainerExplanation>
       <ContentTitle>
@@ -31,9 +40,9 @@ export const Explanation = () => {
       </ContentTitle>
 
       <ContainerExpanation>
-        <Content>
-          <Image src={ImageOne} alt="" data-aos="zoom-in" />
-          <ContainerText data-aos="fade-left">
+        <Content data-aos="zoom-in-right">
+          <Image src={ImageOne} alt="" />
+          <ContainerText>
             <div>
               <span>1º Passo</span>
               <TitleText size="m" color="black">
@@ -49,8 +58,8 @@ export const Explanation = () => {
           </ContainerText>
         </Content>
 
-        <Content>
-          <ContainerText data-aos="fade-right">
+        <Content data-aos="zoom-in-left">
+          <ContainerText>
             <div>
               <span>2º Passo</span>
               <TitleText size="m" color="black">
@@ -64,12 +73,12 @@ export const Explanation = () => {
               alinhadas com seu perfil, maximizando suas chances de sucesso.
             </TextRegular>
           </ContainerText>
-          <Image src={ImageTwo} alt="" data-aos="zoom-in" />
+          <Image src={ImageTwo} alt="" />
         </Content>
 
-        <Content>
-          <Image src={ImageTree} alt="" data-aos="zoom-in" />
-          <ContainerText data-aos="fade-left">
+        <Content data-aos="zoom-in-right">
+          <Image src={ImageTree} alt="" />
+          <ContainerText>
             <div>
               <span>3º Passo</span>
               <TitleText size="m" color="black">

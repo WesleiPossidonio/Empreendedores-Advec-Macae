@@ -8,10 +8,7 @@ import { Form } from './styled'
 
 const loginCompaniesFormSchema = zod.object({
   email: zod.string().email('Favor digite seu email corretamente'),
-  password: zod
-    .string()
-    .min(6, 'Favor digite sua senha corretamente')
-    .max(6, 'Favor digite sua senha corretamente'),
+  password: zod.string().min(6, 'Favor digite sua senha corretamente'),
 })
 
 type createLoginCompaniesFormInputs = zod.infer<typeof loginCompaniesFormSchema>

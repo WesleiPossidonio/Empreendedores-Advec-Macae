@@ -195,6 +195,8 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
       setSearchVacancy(vacancy)
       setPageStatusJobSearch(selectedPage)
 
+      console.log(selectedPage)
+
       if (selectedPage === 'pageJob') {
         const listVacanciesSelected: ListVacanciesProps[] = listVacancy.filter(
           (list) =>
@@ -239,20 +241,22 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         fourth_img,
       } = data
 
-      try {
-        const formData = new FormData()
-        formData.append('name_companies', name_companies)
-        formData.append('email', email)
-        formData.append('company_description', company_description)
-        formData.append('password', password)
-        formData.append('path_banner', path_banner)
-        formData.append('path_img', path_img)
-        formData.append('first_img', first_img)
-        formData.append('second_img', second_img)
-        formData.append('third_img', third_img)
-        formData.append('fourth_img', fourth_img)
-        formData.append('branch_of_activity', branch_of_activity)
+      const formData = new FormData()
+      formData.append('name_companies', name_companies)
+      formData.append('email', email)
+      formData.append('company_description', company_description)
+      formData.append('password', password)
+      formData.append('path_banner', path_banner[0])
+      formData.append('path_img', path_img[0])
+      formData.append('first_img', first_img)
+      formData.append('second_img', second_img)
+      formData.append('third_img', third_img)
+      formData.append('fourth_img', fourth_img)
+      formData.append('branch_of_activity', branch_of_activity)
 
+      console.log(formData)
+
+      try {
         await toast.promise(
           api.post('companies', formData, {
             headers: {
@@ -343,35 +347,26 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
     [allListComments],
   )
 
-  const handleSendEmail = useCallback(
-    async (data: SendEmailProps) => {
-      const { email, name, phone, subject } = data
+  const handleSendEmail = useCallback(async (data: SendEmailProps) => {
+    const { email, name, phone, subject } = data
 
-      const dataSendEmail = {
-        email,
-        name,
-        phone,
-        subject,
-      }
+    const dataSendEmail = {
+      email,
+      name,
+      phone,
+      subject,
+    }
 
-      try {
-        const newListComments = await toast.promise(
-          api.post('sendMail', dataSendEmail),
-          {
-            pending: 'Verificando seus dados',
-            success: 'Vaga criada com sucesso!',
-            error: 'Verifique seus dado e faça novamente! 🤯',
-          },
-        )
-
-        const { data } = newListComments
-        setallListComments([...allListComments, data])
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    [allListComments],
-  )
+    try {
+      await toast.promise(api.post('sendMail', dataSendEmail), {
+        pending: 'Verificando seus dados',
+        success: 'Dúvida enviada com sucesso!',
+        error: 'Verifique seus dado e faça novamente! 🤯',
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
   const HandleLoginCompanies = useCallback(
     async (data: DataLoginCompanies) => {

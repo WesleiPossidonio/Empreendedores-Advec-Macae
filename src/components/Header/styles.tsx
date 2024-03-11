@@ -57,6 +57,7 @@ interface NavMobileProps {
 export const NavMobile = styled.nav<NavMobileProps>`
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
