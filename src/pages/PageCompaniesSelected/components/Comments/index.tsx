@@ -34,8 +34,8 @@ export const Comments = ({ company, commentsList }: PageCommentsProps) => {
   return (
     <ContainerComments>
       <HeaderContent>
-        <TitleText>O que Falam da {company.name_companies}</TitleText>
-        <TextRegular weight={500}>
+        <TitleText size="s">O que Falam da {company.name_companies}</TitleText>
+        <TextRegular size="sm" weight={500}>
           Compratilhe conosco a sua experiência com a {company.name_companies}
         </TextRegular>
         <div>

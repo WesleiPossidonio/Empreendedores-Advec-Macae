@@ -108,7 +108,7 @@ export const PageCompaniesSelected = () => {
             <TitleText size="s" weight={700}>
               Sobre a Empresa
             </TitleText>
-            <TextRegular>{state.company_description}</TextRegular>
+            <TextRegular size="sm">{state.company_description}</TextRegular>
           </AboutCompanies>
 
           <ImageAboutCompanies>

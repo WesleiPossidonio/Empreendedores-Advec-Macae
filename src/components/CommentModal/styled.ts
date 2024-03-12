@@ -12,7 +12,7 @@ export const Overlay = styled(Dialog.Overlay)`
 `
 export const ContentModal = styled(Dialog.Content)`
   z-index: 99999;
-  min-width: 40rem;
+  min-width: 90%;
   border-radius: 6px;
   padding: 2.5rem 3rem;
   background: #f2f3ee;
@@ -29,6 +29,10 @@ export const ContentModal = styled(Dialog.Content)`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    padding: 1rem;
   }
 `
 
