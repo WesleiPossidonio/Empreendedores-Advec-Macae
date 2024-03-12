@@ -72,7 +72,9 @@ export const Companies = () => {
               }}
             >
               <img src={list.path_img} alt="" />
-              <TitleText color="black">{list.name_companies}</TitleText>
+              <TitleText size="s" color="black">
+                {list.name_companies}
+              </TitleText>
             </CardSwiper>
           )
         })}

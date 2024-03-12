@@ -9,6 +9,10 @@ export const ContainerCompanies = styled.main`
   justify-content: flex-start;
 
   background-color: ${({ theme }) => theme.colors['base-white']};
+
+  #ErrorCommentText {
+    align-self: center;
+  }
 `
 
 export const HeaderCompanies = styled.header`
@@ -85,7 +89,7 @@ export const ImgBanner = styled.img`
 `
 
 export const ContentImgLogo = styled.div`
-  width: 6.2rem;
+  width: min(6.2rem, 16vw);
   border: 3px solid ${({ theme }) => theme.colors['base-theme']};
   border-radius: 6px;
 
@@ -170,12 +174,16 @@ export const ListVacancies = styled.ul`
     align-items: center;
     justify-content: space-around;
 
-    padding: 1rem;
+    padding: 0.6rem;
     border-radius: 8px;
 
     background-color: ${({ theme }) => theme.colors['base-gray-100']};
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     cursor: pointer;
+
+    p {
+      font-size: ${({ theme }) => theme.FontSizes['text-regular-sm']};
+    }
   }
 `
 
@@ -188,6 +196,7 @@ export const ImageAboutCompanies = styled.div`
   padding: 1rem 3rem;
   margin-top: 5rem;
 `
+
 export const ImageOneAboutCompany = styled.img`
   width: min(45.1rem, 52vw);
   object-fit: cover;

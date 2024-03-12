@@ -35,17 +35,13 @@ export const CardSwiper = styled(SwiperSlide)`
   transition: 0.2s ease-in;
 
   > img {
-    width: min(8rem, 10vw);
+    width: 5rem;
     padding: 0.5rem;
     object-fit: cover;
     border: 4px solid ${({ theme }) => theme.colors['base-theme']};
     border-radius: 8px;
 
     transition: 0.2s ease-in;
-
-    @media (max-width: 769px) {
-      width: min(8rem, 16vw);
-    }
   }
 
   &:hover {

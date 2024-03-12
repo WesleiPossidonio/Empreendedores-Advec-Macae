@@ -25,6 +25,11 @@ export const HeaderContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 0.1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 
   > div {
     width: 100%;
@@ -35,9 +40,17 @@ export const HeaderContent = styled.div`
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.5rem;
+      gap: 1rem;
     }
   }
+`
+
+export const ContentText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
 `
 
 export const ContentComments = styled(SwiperSlide)`

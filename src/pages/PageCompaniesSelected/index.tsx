@@ -78,110 +78,114 @@ export const PageCompaniesSelected = () => {
   }
 
   return (
-    <>
-      <ContainerCompanies>
-        <HeaderCompanies>
-          <TitleText>Logo</TitleText>
+    <ContainerCompanies>
+      <HeaderCompanies>
+        <TitleText>Logo</TitleText>
+        <div>
+          <TextRegular weight={600} onClick={handleToGoBackHome}>
+            Voltar a Home
+          </TextRegular>
+          <TextRegular weight={600} onClick={handleToGoBack}>
+            Voltar
+          </TextRegular>
+        </div>
+      </HeaderCompanies>
+      <ContainerAboutCompanies>
+        <ContainerBanner>
+          <ImgBanner src={state.path_banner} />
           <div>
-            <TextRegular weight={600} onClick={handleToGoBackHome}>
-              Voltar a Home
-            </TextRegular>
-            <TextRegular weight={600} onClick={handleToGoBack}>
-              Voltar
-            </TextRegular>
+            <ContentImgLogo>
+              <ImageLogo src={state.path_img} />
+            </ContentImgLogo>
+            <TitleText size="s" color="black">
+              {state.name_companies}
+            </TitleText>
           </div>
-        </HeaderCompanies>
-        <ContainerAboutCompanies>
-          <ContainerBanner>
-            <ImgBanner src={state.path_banner} />
+        </ContainerBanner>
+
+        <ContentCompanies>
+          <AboutCompanies>
+            <TitleText size="s" weight={700}>
+              Sobre a Empresa
+            </TitleText>
+            <TextRegular>{state.company_description}</TextRegular>
+          </AboutCompanies>
+
+          <ImageAboutCompanies>
             <div>
-              <ContentImgLogo>
-                <ImageLogo src={state.path_img} />
-              </ContentImgLogo>
-              <TitleText color="black">{state.name_companies}</TitleText>
-            </div>
-          </ContainerBanner>
-
-          <ContentCompanies>
-            <AboutCompanies>
-              <TitleText size="m" weight={700}>
-                Sobre a Empresa
-              </TitleText>
-              <TextRegular>{state.company_description}</TextRegular>
-            </AboutCompanies>
-
-            <ContentVacancies>
-              <TitleText size="m" weight={700}>
-                Nossas Vagas
-              </TitleText>
-
-              <ListVacancies>
-                {currentVacancies.length <= 0 ? (
-                  <TextRegular>Não há Vagas Cadastradas!</TextRegular>
-                ) : (
-                  currentVacancies.map((list) => {
-                    return (
-                      <li
-                        key={list.id}
-                        onClick={() => {
-                          handleNavigateVacancy(list.id)
-                        }}
-                      >
-                        <p>{list.name_vacancies}</p>
-                        <p>{list.number_of_vacancies} Vagas</p>
-                      </li>
-                    )
-                  })
-                )}
-              </ListVacancies>
-
-              <Pagination
-                count={pageCount}
-                page={currentPage}
-                onChange={handleChange}
+              <ImageOneAboutCompany
+                src={state.path_companies_img.imageOne}
+                alt=""
               />
+            </div>
 
-              <ImageAboutCompanies>
-                <div>
-                  <ImageOneAboutCompany
-                    src={state.path_companies_img.imageOne}
-                    alt=""
-                  />
-                </div>
+            <ContainerImageAboutCompany>
+              <TwoImagesCompany>
+                <ImagesAboutCompany
+                  src={state.path_companies_img.imageTwo}
+                  alt=""
+                />
+                <ImagesAboutCompany
+                  src={state.path_companies_img.imageThree}
+                  alt=""
+                />
+              </TwoImagesCompany>
 
-                <ContainerImageAboutCompany>
-                  <TwoImagesCompany>
-                    <ImagesAboutCompany
-                      src={state.path_companies_img.imageTwo}
-                      alt=""
-                    />
-                    <ImagesAboutCompany
-                      src={state.path_companies_img.imageThree}
-                      alt=""
-                    />
-                  </TwoImagesCompany>
+              <div>
+                <FourthImage src={state.path_companies_img.imageFour} alt="" />
+              </div>
+            </ContainerImageAboutCompany>
+          </ImageAboutCompanies>
 
-                  <div>
-                    <FourthImage
-                      src={state.path_companies_img.imageFour}
-                      alt=""
-                    />
-                  </div>
-                </ContainerImageAboutCompany>
-              </ImageAboutCompanies>
-            </ContentVacancies>
-          </ContentCompanies>
-          {filteredCommentList !== null ? (
-            <Comments company={state} commentsList={filteredCommentList} />
-          ) : (
-            <TextRegular>Ops.: Não há Avaliações</TextRegular>
-          )}
-        </ContainerAboutCompanies>
-        <DisqusComments
-          identifier={String(state.id)}
-          title={state.name_companies}
-        />
-      </ContainerCompanies>
-    </>
+          <ContentVacancies>
+            <TitleText size="s" weight={700}>
+              Nossas Vagas
+            </TitleText>
+
+            <ListVacancies>
+              {currentVacancies.length === 0 ? (
+                <TextRegular>Não há Vagas Cadastradas!</TextRegular>
+              ) : (
+                currentVacancies.map((list) => {
+                  return (
+                    <li
+                      key={list.id}
+                      onClick={() => {
+                        handleNavigateVacancy(list.id)
+                      }}
+                    >
+                      <p>{list.name_vacancies}</p>
+                      <p>{list.number_of_vacancies} Vagas</p>
+                    </li>
+                  )
+                })
+              )}
+            </ListVacancies>
+
+            <Pagination
+              count={pageCount}
+              page={currentPage}
+              onChange={handleChange}
+            />
+          </ContentVacancies>
+        </ContentCompanies>
+        {filteredCommentList.length > 0 ? (
+          <Comments company={state} commentsList={filteredCommentList} />
+        ) : (
+          <TextRegular
+            size="m"
+            weight={700}
+            color="black"
+            id="ErrorCommentText"
+          >
+            Ops.: Não há Avaliações Registradas
+          </TextRegular>
+        )}
+      </ContainerAboutCompanies>
+      <DisqusComments
+        identifier={String(state.id)}
+        title={state.name_companies}
+      />
+    </ContainerCompanies>
   )
 }

@@ -56,6 +56,12 @@ export const ContainerBanner = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+
+    @media (max-width: 720px) {
+      h1 {
+        font-size: 1rem;
+      }
+    }
   }
 `
 
@@ -77,11 +83,16 @@ export const ImgBanner = styled.img`
 `
 
 export const ContentImgLogo = styled.div`
-  width: 6.2rem;
+  width: min(6.2rem, 16vw);
   border: 3px solid ${({ theme }) => theme.colors['base-theme']};
   border-radius: 6px;
 
   @media (min-width: 1700px) {
+    width: 8rem;
+    object-fit: cover;
+  }
+
+  @media (min-width: 720px) {
     width: 8rem;
     object-fit: cover;
   }

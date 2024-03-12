@@ -55,7 +55,7 @@ export const Vacancies = () => {
                   <ContentImgLogo>
                     <ImageLogo src={data.vacancies.path_img} />
                   </ContentImgLogo>
-                  <TitleText color="black">
+                  <TitleText size="s" color="black">
                     {data.vacancies.name_companies}
                   </TitleText>
                 </div>
@@ -63,33 +63,37 @@ export const Vacancies = () => {
 
               <ContentVacancies>
                 <div>
-                  <TitleText size="m" weight={700}>
+                  <TitleText size="s" weight={700}>
                     Sobre a Empresa
                   </TitleText>
-                  <TextRegular>
+                  <TextRegular size="sm">
                     {data.vacancies.company_description}
                   </TextRegular>
                 </div>
 
                 <div>
-                  <TitleText size="m" weight={700}>
+                  <TitleText size="s" weight={700}>
                     Sobre a Vaga
                   </TitleText>
-                  <TextRegular>{data.job_description}</TextRegular>
+                  <TextRegular size="sm">{data.job_description}</TextRegular>
                 </div>
 
                 <div>
-                  <TitleText size="m" weight={700}>
+                  <TitleText size="s" weight={700}>
                     Requisitos da Vaga
                   </TitleText>
-                  <TextRegular>{data.vacancy_requirements}</TextRegular>
+                  <TextRegular size="sm">
+                    {data.vacancy_requirements}
+                  </TextRegular>
                 </div>
 
                 <div>
-                  <TitleText size="m" weight={700}>
+                  <TitleText size="s" weight={700}>
                     Benefícios da Vaga
                   </TitleText>
-                  <TextRegular>{data.additional_information}</TextRegular>
+                  <TextRegular size="sm">
+                    {data.additional_information}
+                  </TextRegular>
                 </div>
 
                 <ButtonLink href={`mailto:${data.vacancies.email}`}>
