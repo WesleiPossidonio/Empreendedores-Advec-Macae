@@ -26,6 +26,7 @@ export const HeaderContent = styled.div`
   flex-direction: column;
   justify-content: space-around;
   gap: 0.1rem;
+  margin-bottom: 3rem;
 
   @media (max-width: 768px) {
     gap: 0.5rem;

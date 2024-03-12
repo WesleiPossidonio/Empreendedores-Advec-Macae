@@ -169,18 +169,8 @@ export const PageCompaniesSelected = () => {
             />
           </ContentVacancies>
         </ContentCompanies>
-        {filteredCommentList.length > 0 ? (
-          <Comments company={state} commentsList={filteredCommentList} />
-        ) : (
-          <TextRegular
-            size="m"
-            weight={700}
-            color="black"
-            id="ErrorCommentText"
-          >
-            Ops.: Não há Avaliações Registradas
-          </TextRegular>
-        )}
+
+        <Comments company={state} commentsList={filteredCommentList} />
       </ContainerAboutCompanies>
       <DisqusComments
         identifier={String(state.id)}

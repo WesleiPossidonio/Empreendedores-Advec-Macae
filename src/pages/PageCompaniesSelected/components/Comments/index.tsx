@@ -59,56 +59,62 @@ export const Comments = ({ company, commentsList }: PageCommentsProps) => {
           </Dialog.Root>
         </div>
       </HeaderContent>
-      <Swiper
-        spaceBetween={30}
-        loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          640: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-          },
-          980: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-          },
-        }}
-        modules={[Pagination, Autoplay]}
-        className="mySwiper"
-      >
-        {commentsList.map((comment) => {
-          return (
-            <ContentComments key={comment.id}>
-              <CommentsHeader>
-                <UserCircle size={42} weight="duotone" />
-                <TitleText size="s" color="black">
-                  {comment.name_user}
-                </TitleText>
-                <Stack>
-                  <Rating
-                    name="half-rating"
-                    defaultValue={Number(comment.number_of_stars)}
-                    precision={0.5}
-                    readOnly
-                  />
-                </Stack>
-              </CommentsHeader>
-              <TextRegular size="sm">{comment.text_comments}</TextRegular>
-            </ContentComments>
-          )
-        })}
-      </Swiper>
+      {commentsList.length === 0 ? (
+        <TextRegular size="m" weight={700} color="black" id="ErrorCommentText">
+          Ops.: Não há Avaliações Registradas
+        </TextRegular>
+      ) : (
+        <Swiper
+          spaceBetween={30}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            980: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+          modules={[Pagination, Autoplay]}
+          className="mySwiper"
+        >
+          {commentsList.map((comment) => {
+            return (
+              <ContentComments key={comment.id}>
+                <CommentsHeader>
+                  <UserCircle size={42} weight="duotone" />
+                  <TitleText size="s" color="black">
+                    {comment.name_user}
+                  </TitleText>
+                  <Stack>
+                    <Rating
+                      name="half-rating"
+                      defaultValue={Number(comment.number_of_stars)}
+                      precision={0.5}
+                      readOnly
+                    />
+                  </Stack>
+                </CommentsHeader>
+                <TextRegular size="sm">{comment.text_comments}</TextRegular>
+              </ContentComments>
+            )
+          })}
+        </Swiper>
+      )}
     </ContainerComments>
   )
 }
