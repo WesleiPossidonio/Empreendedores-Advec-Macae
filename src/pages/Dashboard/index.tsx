@@ -1,10 +1,10 @@
-import { User } from '@phosphor-icons/react'
+import { ListMagnifyingGlass, PlusCircle, User } from '@phosphor-icons/react'
+import * as Dialog from '@radix-ui/react-dialog'
 import { useNavigate } from 'react-router-dom'
 
-import { FormSearch, TextRegular, TitleText } from '../../components'
+import { AddVacancyModal, FormSearch, TextRegular } from '../../components'
 import { useListVocancies } from '../../contexts/companyContext'
 import { CurrentDate } from './components/CurrentDate'
-import { FormVacancy } from './components/FormVacancy'
 import { TableListVacancy } from './components/TableDashboard'
 import {
   CardDataCompanies,
@@ -12,10 +12,12 @@ import {
   ContainerDashBoard,
   ContentDashboard,
   ContentDataDashboard,
-  FormDashboard,
   HeaderCard,
   HeaderData,
   Line,
+  MenLinkListVacancy,
+  MenuDashboard,
+  MenuLinkAddVacancy,
 } from './styled'
 
 export const DashBoard = () => {
@@ -31,11 +33,24 @@ export const DashBoard = () => {
 
   return (
     <ContainerDashBoard>
+      <MenuDashboard>
+        <MenLinkListVacancy>
+          <ListMagnifyingGlass size={32} />
+          <p>Minhas Vagas</p>
+        </MenLinkListVacancy>
+
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <MenuLinkAddVacancy>
+              <PlusCircle size={32} />
+              <p>Add Vagas</p>
+            </MenuLinkAddVacancy>
+          </Dialog.Trigger>
+          <AddVacancyModal />
+        </Dialog.Root>
+      </MenuDashboard>
+
       <ContentDashboard>
-        <FormDashboard>
-          <TitleText>Adicionar Vagas</TitleText>
-          <FormVacancy />
-        </FormDashboard>
         <ContentDataDashboard>
           <HeaderData>
             <CardDataDashboard>

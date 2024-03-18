@@ -2,38 +2,30 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { styled } from 'styled-components'
 
 export const Overlay = styled(Dialog.Overlay)`
-  z-index: 10;
-  position: fixed;
   width: 100vw;
   height: 100vh;
+  z-index: 10;
+  position: fixed;
   inset: 0;
 
   background: rgba(0, 0, 0, 0.75);
 `
 export const ContentModal = styled(Dialog.Content)`
-  z-index: 99;
-  min-width: 90%;
+  z-index: 12;
+  width: 65%;
+  height: 90%;
   border-radius: 6px;
   padding: 2.5rem 3rem;
   background: #f2f3ee;
-
   position: fixed;
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
-
-  form {
-    margin-top: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  @media (max-width: 720px) {
-    padding: 1rem;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
 `
 
 export const CloseButton = styled(Dialog.Close)`

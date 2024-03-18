@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ContainerClock = styled.h1`
-  font-size: min(3.2rem, 3.5vw);
+  font-size: 3.2rem;
   color: ${({ theme }) => theme.colors['base-theme']};
   align-self: center;
 `

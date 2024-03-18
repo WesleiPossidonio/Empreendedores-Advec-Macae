@@ -46,7 +46,7 @@ interface TextAreaProps {
 
 export const TextArea = styled.textarea<TextAreaProps>`
   width: 100%;
-  height: 10rem;
+  height: 8rem;
 
   padding: 0.5rem;
   border: 2px solid
