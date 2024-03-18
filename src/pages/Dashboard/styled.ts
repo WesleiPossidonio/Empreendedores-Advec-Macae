@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerDashBoard = styled.main`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 5rem;
 
   display: flex;
@@ -46,11 +46,13 @@ export const MenuDashboard = styled.div`
   @media (max-width: 700px) {
     flex-direction: row;
     width: 10rem;
+
     height: max-content;
     align-self: center;
+    padding: 0.7rem;
 
     position: absolute;
-    bottom: 2.3rem;
+    bottom: 2%;
   }
 `
 
@@ -139,7 +141,9 @@ export const ContentDashboard = styled.section`
     height: max-content;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
+    width: 100%;
+    height: 100vh;
     padding: 1rem;
   }
 `
