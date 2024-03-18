@@ -52,7 +52,7 @@ export const MenuDashboard = styled.div`
     padding: 0.7rem;
 
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.3rem;
   }
 `
 
@@ -144,7 +144,7 @@ export const ContentDashboard = styled.section`
   @media (max-width: 700px) {
     width: 100%;
     height: 100vh;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
 `
 
