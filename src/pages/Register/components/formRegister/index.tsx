@@ -54,6 +54,8 @@ export const FormRegister = () => {
 
   const [fileInputFilledLogo, setFileInputFilledLogo] = useState(false)
   const [fileInputFilledBanner, setFileInputFilledBanner] = useState(false)
+  const [fileInputFilledCompanyImg, setFileInputFilledCompanyImg] =
+    useState(false)
 
   const { handleRegiterCompanies } = useListVocancies()
 
@@ -63,6 +65,10 @@ export const FormRegister = () => {
 
   const handleFileInputChangeBanner = () => {
     setFileInputFilledBanner(true)
+  }
+
+  const handleFileInputChangeCompanyImages = () => {
+    setFileInputFilledCompanyImg(true)
   }
 
   const handleRegisterCompanies = (data: createLoginCompaniesFormInputs) => {
@@ -129,6 +135,7 @@ export const FormRegister = () => {
         error={errors.email?.message}
       />
       <Input
+        type="password"
         placeholder="Digite sua senha"
         {...register('password')}
         error={errors.password?.message}
@@ -161,7 +168,7 @@ export const FormRegister = () => {
             onClick={handleFileInputChangeBanner}
           />
         </ContentInput>
-        <Label htmlFor="files" fileState={fileInputFilledBanner}>
+        <Label htmlFor="files" fileState={fileInputFilledCompanyImg}>
           Imagens da Empresa
         </Label>
         <InputFile
@@ -169,6 +176,7 @@ export const FormRegister = () => {
           id="files"
           {...register('path_companies_img')}
           multiple
+          onClick={handleFileInputChangeCompanyImages}
         />
       </ContainerInputImage>
       <Button bg="theme" search>
