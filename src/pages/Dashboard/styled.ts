@@ -52,7 +52,7 @@ export const MenuDashboard = styled.div`
     padding: 0.7rem;
 
     position: absolute;
-    bottom: 2%;
+    bottom: 0.5rem;
   }
 `
 
