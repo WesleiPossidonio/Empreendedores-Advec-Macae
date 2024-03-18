@@ -173,7 +173,7 @@ export const PageCompaniesSelected = () => {
         <Comments company={state} commentsList={filteredCommentList} />
       </ContainerAboutCompanies>
       <DisqusComments
-        identifier={String(state.id)}
+        identifier={String(state.name_companies)}
         title={state.name_companies}
       />
     </ContainerCompanies>
