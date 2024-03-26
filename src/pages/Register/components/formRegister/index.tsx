@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
@@ -52,6 +53,7 @@ export const FormRegister = () => {
     resolver: zodResolver(RegisterCompaniesFormSchema),
   })
 
+  const [captcha, setCaptcha] = useState('')
   const [fileInputFilledLogo, setFileInputFilledLogo] = useState(false)
   const [fileInputFilledBanner, setFileInputFilledBanner] = useState(false)
   const [fileInputFilledCompanyImg, setFileInputFilledCompanyImg] =
@@ -69,6 +71,12 @@ export const FormRegister = () => {
 
   const handleFileInputChangeCompanyImages = () => {
     setFileInputFilledCompanyImg(true)
+  }
+
+  const handleCapcha = (token: string | null) => {
+    if (token !== null) {
+      setCaptcha(token)
+    }
   }
 
   const handleRegisterCompanies = (data: createLoginCompaniesFormInputs) => {
@@ -102,9 +110,10 @@ export const FormRegister = () => {
       fourth_img,
     }
 
-    void handleRegiterCompanies(newList)
-
-    reset()
+    if (captcha !== '') {
+      void handleRegiterCompanies(newList)
+      reset()
+    }
   }
 
   return (
@@ -168,7 +177,11 @@ export const FormRegister = () => {
             onClick={handleFileInputChangeBanner}
           />
         </ContentInput>
-        <Label htmlFor="files" fileState={fileInputFilledCompanyImg}>
+        <Label
+          htmlFor="files"
+          id="ImgCompany"
+          fileState={fileInputFilledCompanyImg}
+        >
           Imagens da Empresa
         </Label>
         <InputFile
@@ -178,7 +191,12 @@ export const FormRegister = () => {
           multiple
           onClick={handleFileInputChangeCompanyImages}
         />
+        <ReCAPTCHA
+          sitekey="6LdmsKQpAAAAABUDbKwwG4084CSbsLgbFfeP-RKv"
+          onChange={handleCapcha}
+        />
       </ContainerInputImage>
+
       <Button bg="theme" search>
         Cadastrar
       </Button>

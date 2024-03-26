@@ -2,6 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Rating, Box } from '@mui/material'
 import { X } from '@phosphor-icons/react'
 import * as Dialog from '@radix-ui/react-dialog'
+import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { Controller, useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
@@ -26,6 +28,7 @@ const addReviewFormSchema = zod.object({
 type addReviewFormInput = zod.infer<typeof addReviewFormSchema>
 
 export const CommentModal = ({ idCompany }: CommentModalProps) => {
+  const [captcha, setCaptcha] = useState('')
   const {
     control,
     register,
@@ -48,8 +51,19 @@ export const CommentModal = ({ idCompany }: CommentModalProps) => {
       number_of_stars,
       comments_id: idCompany,
     }
-    createNewComments(newComment)
-    reset()
+
+    if (captcha !== '') {
+      createNewComments(newComment)
+      reset()
+    } else {
+      alert('Por gentileza, preencha todos os campos')
+    }
+  }
+
+  const handleCapcha = (token: string | null) => {
+    if (token !== null) {
+      setCaptcha(token)
+    }
   }
 
   return (
@@ -89,6 +103,10 @@ export const CommentModal = ({ idCompany }: CommentModalProps) => {
               )}
             />
           </Box>
+          <ReCAPTCHA
+            sitekey="6LdmsKQpAAAAABUDbKwwG4084CSbsLgbFfeP-RKv"
+            onChange={handleCapcha}
+          />
           <Button bg="theme">Enviar</Button>
         </form>
       </ContentModal>

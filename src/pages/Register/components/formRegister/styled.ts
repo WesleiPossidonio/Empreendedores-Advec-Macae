@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Form = styled.form`
   width: min(45rem, 90%);
-  height: 45rem;
+  height: 58rem;
 
   display: flex;
   flex-direction: column;
@@ -38,6 +38,10 @@ export const ContainerInputImage = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 0.8rem;
+
+  #ImgCompany {
+    width: 100%;
+  }
 `
 
 export const ContentInput = styled.div`

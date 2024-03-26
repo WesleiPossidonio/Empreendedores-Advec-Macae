@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Form = styled.form`
   width: min(30rem, 90%);
-  height: 25rem;
+  height: 30rem;
 
   display: flex;
   flex-direction: column;
@@ -13,6 +13,10 @@ export const Form = styled.form`
 
   background-color: ${({ theme }) => theme.colors['base-gray-100']};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  .ReCAPTCHA {
+    align-self: flex-start;
+  }
 
   > h1 {
     margin-bottom: 2rem;

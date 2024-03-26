@@ -1,4 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
 
@@ -14,6 +16,7 @@ const loginCompaniesFormSchema = zod.object({
 type createLoginCompaniesFormInputs = zod.infer<typeof loginCompaniesFormSchema>
 
 export const FormLogin = () => {
+  const [captcha, setCaptcha] = useState('')
   const {
     register,
     handleSubmit,
@@ -25,9 +28,17 @@ export const FormLogin = () => {
 
   const { HandleLoginCompanies } = useListVocancies()
 
+  const handleCapcha = (token: string | null) => {
+    if (token !== null) {
+      setCaptcha(token)
+    }
+  }
+
   const handleLoginCompanies = (data: createLoginCompaniesFormInputs) => {
-    void HandleLoginCompanies(data)
-    reset()
+    if (captcha !== '') {
+      void HandleLoginCompanies(data)
+      reset()
+    }
   }
 
   return (
@@ -45,6 +56,11 @@ export const FormLogin = () => {
         placeholder="Digite sua senha"
         {...register('password')}
         error={errors.password?.message}
+      />
+      <ReCAPTCHA
+        className="ReCAPTCHA"
+        sitekey="6LdmsKQpAAAAABUDbKwwG4084CSbsLgbFfeP-RKv"
+        onChange={handleCapcha}
       />
       <TextRegular>Esqueceu senha?</TextRegular>
       <Button bg="theme">Entrar</Button>
