@@ -7,7 +7,7 @@ import * as zod from 'zod'
 import { Button, TextRegular, TitleText } from '../../../../components'
 import { Input } from '../../../../components/Input'
 import { useListVocancies } from '../../../../contexts/companyContext'
-import { ContainerContact, Form, TextArea } from './styled'
+import { ContainerContact, ContentTextArea, Form, TextArea } from './styled'
 
 const sendEmailFormSchema = zod.object({
   name: zod.string().min(1, 'Por gentileza, digite o seu Nome'),
@@ -71,11 +71,16 @@ export const FormContact = () => {
           error={errors.phone?.message}
         />
 
-        <TextArea
-          placeholder="Descreva a sua dúvida"
-          {...register('subject')}
-          error={errors.subject?.message}
-        />
+        <ContentTextArea>
+          <TextArea
+            placeholder="Descreva a sua dúvida"
+            {...register('subject')}
+            error={errors.subject?.message}
+          />
+          {errors.subject != null && (
+            <TextRegular color="red">{errors.subject?.message}</TextRegular>
+          )}
+        </ContentTextArea>
 
         <Button bg="black" search>
           Enviar

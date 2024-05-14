@@ -40,6 +40,15 @@ export const Form = styled.form`
   }
 `
 
+export const ContentTextArea = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+`
+
 interface TextAreaProps {
   error?: string
 }
@@ -70,7 +79,7 @@ export const TextArea = styled.textarea<TextAreaProps>`
   }
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors['base-theme']};
+    border: 2px solid ${({ theme }) => theme.colors['base-black']};
     border-radius: 8px;
   }
 `

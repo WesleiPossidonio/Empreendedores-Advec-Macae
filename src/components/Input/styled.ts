@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 
 export const InputWrapper = styled.div`
   width: 100%;
-
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -21,13 +20,12 @@ export const InputContaineStyle = styled.div<InputStyleContainerProps>`
   font-size: 0.8835125rem;
   line-height: 1.3125rem;
 
-  border: 2px solid ${({ theme }) => theme.colors['base-gray-100']};
   border-radius: 7px;
 
   background: ${({ theme }) => theme.colors['base-gray-100']};
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors['base-theme']};
+    border: 2px solid ${({ theme }) => theme.colors['base-black']};
     border-radius: 8px;
   }
 
@@ -62,7 +60,7 @@ export const InputStyled = styled.input`
   }
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors['base-theme']};
+    border: 2px solid ${({ theme }) => theme.colors['base-black']};
     border-radius: 8px;
   }
 `

@@ -145,10 +145,15 @@ export const ContentVacancies = styled.div`
   padding: 5rem 3rem;
 
   div {
+    max-width: 90%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 1rem;
+
+    @media (max-width: 720px) {
+      max-width: 100%;
+    }
   }
 `
