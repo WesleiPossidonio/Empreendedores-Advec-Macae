@@ -76,6 +76,7 @@ export const ImgBanner = styled.img`
   height: max-content;
   margin-top: 4rem;
   object-fit: cover;
+  object-position: center;
 
   @media (min-width: 1700px) {
     height: 37rem;

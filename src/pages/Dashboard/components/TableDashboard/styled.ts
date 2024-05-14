@@ -27,7 +27,7 @@ export const ListRequerimentTable = styled(TableContainer)`
   }
 
   > div td {
-    border-bottom-color: ${({ theme }) => theme.colors['base-theme']};
+    border-bottom-color: ${({ theme }) => theme.colors['base-gray-100']};
   }
 
   @media (max-width: 600px) {
@@ -41,7 +41,7 @@ export const TableHeader2 = muiStyled(TableCell)({
   fontSize: '1rem',
   fontWeight: '600',
   border: 'none',
-  color: '#FF9500',
+  color: '#000',
 }) as typeof TableCell
 
 export const TableRowContentList = muiStyled(TableRow)({
@@ -52,6 +52,6 @@ export const TableRowContentList = muiStyled(TableRow)({
 }) as typeof TableRow
 
 export const TableContentList = muiStyled(TableCell)({
-  color: '#FF9500',
+  color: '#000',
   marginBottom: '2rem',
 }) as typeof TableCell

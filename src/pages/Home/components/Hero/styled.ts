@@ -7,7 +7,7 @@ export const ContainerHero = styled.section`
   min-height: 100vh;
 
   background-image: url(${BgHero});
-  background-position: center center;
+  background-position: center center center;
   background-repeat: no-repeat;
   background-size: cover;
 

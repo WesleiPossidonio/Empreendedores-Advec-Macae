@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
   type ReactNode,
@@ -91,7 +92,6 @@ export interface ListVacancyProps {
   number_of_vacancies: string
   job_description: string
   vacancy_requirements: string
-  additional_information: string
   vacancies: DataCompany
 }
 export interface VacanciesProps {
@@ -154,16 +154,6 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const getListVacancy = async () => {
-      try {
-        const response = await api.get('listVacancies')
-        const listVacancies: ListVacanciesProps[] = response.data
-        setListVacancy(listVacancies)
-      } catch (error) {
-        console.error('Erro ao obter a lista de vagas:', error)
-      }
-    }
-
     const getListCompanies = async () => {
       try {
         const response = await api.get('listCompanies')
@@ -171,6 +161,16 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
         setListCompanies(newListCompanies)
       } catch (error) {
         console.error('Erro ao obter a lista de empresas:', error)
+      }
+    }
+
+    const getListVacancy = async () => {
+      try {
+        const response = await api.get('listVacancies')
+        const listVacancies: ListVacanciesProps[] = response.data
+        setListVacancy(listVacancies)
+      } catch (error) {
+        console.error('Erro ao obter a lista de vagas:', error)
       }
     }
 
@@ -184,9 +184,9 @@ export const ListCompanyProvider = ({ children }: ListCompanyProps) => {
       }
     }
 
-    void getListCompanies()
-    void getListVacancy()
-    void getListComments()
+    getListCompanies()
+    getListVacancy()
+    getListComments()
   }, [])
 
   const handleGetListVacancies = useCallback(

@@ -2,7 +2,7 @@ import { List, X } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Logo from '../../assets/logo-advec2.webp'
+import { TitleText } from '../typograph'
 import {
   ButtonLogin,
   ContainerHeader,
@@ -55,7 +55,9 @@ export const Header = ({ navigatePage }: HeaderProps) => {
 
   return (
     <ContainerHeader stateHeader={stateBackgroundHeader}>
-      <img src={Logo} alt="" onClick={handleNavigateToHome} />
+      <TitleText size="m" onClick={handleNavigateToHome}>
+        LOGO
+      </TitleText>
       {isOpen ? (
         <X size={35} weight="fill" onClick={handleStateMenuMobile} />
       ) : (

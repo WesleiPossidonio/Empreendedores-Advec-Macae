@@ -80,6 +80,10 @@ export const MenLinkListVacancy = styled.div`
 
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     z-index: 999;
+
+    @media (min-width: 1800px) {
+      left: 22rem;
+    }
   }
 
   &:hover {
@@ -112,6 +116,10 @@ export const MenuLinkAddVacancy = styled.div`
     background-color: ${({ theme }) => theme.colors['base-white']};
 
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    @media (min-width: 1800px) {
+      left: 22rem;
+    }
   }
 
   &:hover {
@@ -176,52 +184,13 @@ export const ContentDataDashboard = styled.div`
 export const HeaderData = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-
-  @media (max-width: 700px) {
-    flex-direction: column-reverse;
-    gap: 4rem;
-  }
-`
-
-export const CardDataDashboard = styled.div`
-  width: 50%;
-  height: 10rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 8px;
-  padding: 1.5rem;
-
-  background-color: ${({ theme }) => theme.colors['base-gray-100']};
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  @media (max-width: 700px) {
-    width: 100%;
-  }
-`
-export const CardDataCompanies = styled.div`
-  width: 50%;
-  height: 10rem;
-
-  display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  gap: 0.5rem;
 
   #exit {
     cursor: pointer;
-  }
-
-  @media (max-width: 700px) {
-    width: 100%;
-    align-items: flex-start;
-    height: 0;
   }
 `
 

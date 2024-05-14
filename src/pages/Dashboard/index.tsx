@@ -4,11 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import { AddVacancyModal, FormSearch, TextRegular } from '../../components'
 import { useListVocancies } from '../../contexts/companyContext'
-import { CurrentDate } from './components/CurrentDate'
 import { TableListVacancy } from './components/TableDashboard'
 import {
-  CardDataCompanies,
-  CardDataDashboard,
   ContainerDashBoard,
   ContentDashboard,
   ContentDataDashboard,
@@ -53,22 +50,17 @@ export const DashBoard = () => {
       <ContentDashboard>
         <ContentDataDashboard>
           <HeaderData>
-            <CardDataDashboard>
-              <CurrentDate />
-            </CardDataDashboard>
-            <CardDataCompanies>
-              <HeaderCard>
-                <User size={25} weight="duotone" />
-                <Line />
-                <TextRegular weight={600} size="s">
-                  {dataCompany.name_companies}
-                </TextRegular>
-              </HeaderCard>
-
-              <TextRegular weight={700} id="exit" onClick={handleDeleteUser}>
-                Sair
+            <HeaderCard>
+              <User size={25} weight="duotone" />
+              <Line />
+              <TextRegular weight={600} size="s">
+                {dataCompany.name_companies}
               </TextRegular>
-            </CardDataCompanies>
+            </HeaderCard>
+
+            <TextRegular weight={700} id="exit" onClick={handleDeleteUser}>
+              Sair
+            </TextRegular>
           </HeaderData>
 
           <FormSearch selectedPage="dashboard" formDashboard />

@@ -87,15 +87,6 @@ export const Vacancies = () => {
                   </TextRegular>
                 </div>
 
-                <div>
-                  <TitleText size="s" weight={700}>
-                    Benefícios da Vaga
-                  </TitleText>
-                  <TextRegular size="sm">
-                    {data.additional_information}
-                  </TextRegular>
-                </div>
-
                 <ButtonLink href={`mailto:${data.vacancies.email}`}>
                   Candidatar-se
                 </ButtonLink>

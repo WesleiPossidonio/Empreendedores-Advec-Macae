@@ -143,4 +143,12 @@ export const ContentVacancies = styled.div`
   justify-content: center;
   gap: 2rem;
   padding: 5rem 3rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
 `
